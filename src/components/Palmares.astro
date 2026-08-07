@@ -5,86 +5,164 @@ const achievements = [
     icon: '🏆',
     title: 'Campeones de Canarias',
     description: 'Múltiples títulos regionales en diferentes categorías, consolidando a Nadamás como referencia en la natación canaria.',
-    accent: 'from-gold-400 to-gold-500',
+    accent: 'bg-[#ED1C24]',
   },
   {
     icon: '🥇',
     title: 'Campeones de España',
     description: 'Nuestros nadadores han representado a Lanzarote en los más altos podios nacionales, demostrando que la isla forma campeones.',
-    accent: 'from-cyan-400 to-cyan-500',
+    accent: 'bg-[#00226D]',
   },
   {
     icon: '🌊',
     title: 'Travesías a Nado',
     description: 'Dominio en aguas abiertas con participaciones y victorias en las travesías más exigentes del archipiélago y la Península.',
-    accent: 'from-ocean-400 to-ocean-500',
+    accent: 'bg-[#ED1C24]',
   },
   {
     icon: '📜',
     title: 'Tradición Canaria',
     description: 'Décadas formando generaciones de nadadores en Costa Teguise. Un club de familia, raíces y orgullo lanzaroteño.',
-    accent: 'from-gold-300 to-gold-400',
+    accent: 'bg-[#00226D]',
+  },
+];
+
+const vitrina = [
+  {
+    imagen: '/campeones/podio.png',
+    titulo: 'Podio Regional Canario',
+    deportista: 'Marcos Santana',
+    categoria: '🥇 100m y 200m Libre',
+    descripcion: 'Doble medalla de oro en el Campeonato de Canarias Absoluto.',
+    badge: '🥇 Oro Regional',
+    badgeBg: 'bg-amber-500 text-white shadow-lg',
+  },
+  {
+    imagen: '/campeones/medalla.png',
+    titulo: 'Campeonato de Canarias',
+    deportista: 'Lucía Betancort',
+    categoria: '🥈 Medalla de Plata & Oro Juvenil',
+    descripcion: 'Medallista de plata absoluta y oro de la categoría juvenil en piscina de 50m.',
+    badge: '🥈 Plata Absoluta',
+    badgeBg: 'metallic-silver-badge silver-sheen font-bold shadow-md',
+  },
+  {
+    imagen: '/campeones/equipo.png',
+    titulo: 'Relevo 4x100m Estilos',
+    deportista: 'Equipo Femenino Nadamás',
+    categoria: '🏆 Récord Insular de Lanzarote',
+    descripcion: 'Victoria histórica por equipos representando con orgullo al C.D. Santa Rosa.',
+    badge: '🏆 Récord Insular',
+    badgeBg: 'bg-[#ED1C24] text-white shadow-lg border border-red-400/40',
   },
 ];
 ---
 
-<section id="palmares" class="relative section-padding bg-ocean-950 scroll-mt-24">
-  <!-- Decorative background -->
-  <div class="absolute top-0 right-0 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"></div>
+<section id="palmares" class="relative section-padding bg-[#00123D] text-white scroll-mt-24 overflow-hidden">
+  <!-- Subtle Swimmer Background Pattern -->
+  <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+    <img src="/logo-club.png" alt="" class="w-[650px] h-[650px] object-contain filter invert opacity-30" />
+  </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-gold-400/10 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-4">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#ED1C24]/20 text-[#ED1C24] text-xs font-bold tracking-widest uppercase mb-4 font-heading border border-[#ED1C24]/30">
         Historia y Palmarés
       </span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-        Un club de <span class="gradient-text">campeones</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 font-heading">
+        Un club de <span class="text-[#ED1C24]">campeones</span>
       </h2>
-      <p class="max-w-2xl mx-auto text-white/60 text-base sm:text-lg">
+      <p class="max-w-2xl mx-auto text-slate-300 text-base sm:text-lg">
         Desde nuestros inicios en el C.D. Santa Rosa, hemos escrito páginas doradas en la historia de la natación canaria.
       </p>
     </div>
 
     <!-- Achievement Cards Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-      {achievements.map((item) => (
-        <div class="glass-card hover-lift p-6 text-center group cursor-default">
+      {achievements.map((item, idx) => (
+        <div class={`card-navy p-6 text-center group cursor-default border-slate-700/60 hover:border-[#ED1C24]/60 reveal-delay-${idx + 1}`}>
           <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-          <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
-          <p class="text-white/60 text-sm leading-relaxed">{item.description}</p>
-          <div class={`mt-4 h-1 w-12 mx-auto rounded-full bg-gradient-to-r ${item.accent} opacity-60 group-hover:w-20 transition-all duration-300`}></div>
+          <h3 class="text-lg font-bold text-white mb-2 font-heading">{item.title}</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">{item.description}</p>
+          <div class={`mt-5 h-1 w-12 mx-auto rounded-full ${item.accent} opacity-80 group-hover:w-20 transition-all duration-300`}></div>
         </div>
       ))}
     </div>
 
-    <!-- Champion Wall -->
-    <div id="muro-campeones" class="glass-card p-8 md:p-12 relative overflow-hidden scroll-mt-24">
-      <!-- Gold shimmer overlay -->
-      <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-gold-400/10 to-transparent rounded-bl-full"></div>
+    <!-- Showcase Gallery Section: Vitrina de Campeones -->
+    <div class="mb-20 reveal">
+      <div class="text-center mb-12">
+        <span class="inline-block px-4 py-1.5 rounded-full metallic-silver-badge silver-sheen text-xs font-bold tracking-widest uppercase mb-3 font-heading">
+          🥈 Galería de Honor & Medallas
+        </span>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-heading">
+          Vitrina de <span class="text-[#ED1C24]">Campeones</span>
+        </h3>
+        <p class="max-w-xl mx-auto text-slate-300 text-sm sm:text-base mt-2">
+          Nuestros nadadores en lo más alto del podio regional y nacional.
+        </p>
+      </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {vitrina.map((item, idx) => (
+          <div class={`card-navy silver-sheen overflow-hidden group metallic-border hover:border-[#ED1C24] transition-all duration-300 flex flex-col justify-between reveal-delay-${idx + 1}`}>
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src={item.imagen}
+                alt={item.titulo}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#00123D] via-transparent to-transparent opacity-80"></div>
+              <div class="absolute top-4 left-4">
+                <span class={`px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider ${item.badgeBg}`}>
+                  {item.badge}
+                </span>
+              </div>
+            </div>
+            <div class="p-6 bg-[#00174C] flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-[#ED1C24] uppercase tracking-wider">{item.categoria}</span>
+                <h4 class="text-xl font-extrabold text-white mt-1 mb-2 font-heading group-hover:text-amber-400 transition-colors">
+                  {item.deportista}
+                </h4>
+                <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                  {item.descripcion}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>📍 C.D. Santa Rosa</span>
+                <span class="text-amber-400 font-bold flex items-center gap-1">🏅 Medallista</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Champion Wall -->
+    <div id="muro-campeones" class="card-navy metallic-border silver-sheen p-8 md:p-12 relative overflow-hidden scroll-mt-24 reveal">
       <div class="relative grid md:grid-cols-2 gap-8 items-center">
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 to-gold-500 flex items-center justify-center">
-              <svg class="w-6 h-6 text-ocean-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="w-10 h-10 rounded-lg bg-[#ED1C24] flex items-center justify-center shadow-lg border border-red-400/40">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
             </div>
-            <h3 class="text-2xl md:text-3xl font-bold text-white">Muro de Campeones</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-white font-heading">Muro de Campeones</h3>
           </div>
-          <p class="text-white/70 text-base leading-relaxed mb-6">
+          <p class="text-slate-300 text-base leading-relaxed mb-6">
             Cada medalla cuenta una historia de esfuerzo, madrugones y compromiso. Nuestro muro de campeones celebra a todos los nadadores que, con orgullo lanzaroteño, han subido a lo más alto del podio representando al <strong class="text-white">C.D. Nadamás Las Marinas</strong>.
           </p>
           <div class="flex flex-wrap gap-3">
-            <div class="px-4 py-2 rounded-full bg-gold-400/15 border border-gold-400/30 text-gold-400 text-sm font-semibold">
+            <div class="px-4 py-2 rounded-full bg-[#ED1C24]/20 border border-[#ED1C24]/40 text-[#ED1C24] text-sm font-bold">
               +50 Medallas Regionales
             </div>
-            <div class="px-4 py-2 rounded-full bg-cyan-400/15 border border-cyan-400/30 text-cyan-400 text-sm font-semibold">
-              +15 Nacionales
+            <div class="px-4 py-2 rounded-full metallic-silver-badge text-xs font-bold shadow-md">
+              🥈 +15 Plata & Oro Nacionales
             </div>
-            <div class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold">
+            <div class="px-4 py-2 rounded-full bg-[#00226D] border border-blue-400/30 text-blue-200 text-sm font-semibold">
               +20 Años de Historia
             </div>
           </div>
@@ -95,21 +173,21 @@ const achievements = [
           <div class="relative w-64 h-64">
             <!-- Center medal -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-32 h-32 rounded-full bg-gradient-to-br from-gold-400 to-gold-500 flex items-center justify-center shadow-2xl shadow-gold-400/20 pulse-glow">
+              <div class="w-32 h-32 rounded-full bg-gradient-to-br from-[#ED1C24] to-[#B01016] flex items-center justify-center shadow-2xl shadow-red-500/30 pulse-glow">
                 <span class="text-5xl">🏅</span>
               </div>
             </div>
             <!-- Orbiting elements -->
-            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-ocean-800/80 border border-cyan-400/30 flex items-center justify-center text-2xl">
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#00226D] border border-[#ED1C24]/40 flex items-center justify-center text-2xl shadow-md">
               🏊
             </div>
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-ocean-800/80 border border-gold-400/30 flex items-center justify-center text-2xl">
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#00226D] border border-amber-400/40 flex items-center justify-center text-2xl shadow-md">
               🌟
             </div>
-            <div class="absolute left-2 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-ocean-800/80 border border-cyan-400/30 flex items-center justify-center text-2xl">
+            <div class="absolute left-2 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[#00226D] border border-[#ED1C24]/40 flex items-center justify-center text-2xl shadow-md">
               🌊
             </div>
-            <div class="absolute right-2 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-ocean-800/80 border border-gold-400/30 flex items-center justify-center text-2xl">
+            <div class="absolute right-2 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[#00226D] border border-amber-400/40 flex items-center justify-center text-2xl shadow-md">
               🏆
             </div>
           </div>

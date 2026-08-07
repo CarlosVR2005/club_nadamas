@@ -2,91 +2,107 @@
 /* Horarios: Training schedule by category */
 const horarios = [
   {
-    categoria: 'Escuela e Iniciación',
-    color: 'from-cyan-400 to-cyan-500',
-    borderAccent: 'border-cyan-400/30',
+    categoria: 'Escuela de Natación (3 a 16 años)',
+    badgeColor: 'bg-[#ED1C24] text-white',
+    headerBg: 'bg-[#00226D]',
+    borderAccent: 'border-[#00226D]/20 hover:border-[#ED1C24]/50',
+    proximamente: false,
     turnos: [
-      { dias: 'Lunes y Miércoles', hora: '16:00 – 17:00' },
-      { dias: 'Martes y Jueves', hora: '16:00 – 17:00' },
-      { dias: 'Sábado', hora: '10:00 – 11:00' },
+      { dias: 'Lunes a Viernes', hora: '16:00 – 19:00 h' },
+      { dias: 'Organización', hora: 'Distribuidos por niveles' },
     ],
   },
   {
-    categoria: 'Cantera / Competición',
-    color: 'from-gold-400 to-gold-500',
-    borderAccent: 'border-gold-400/30',
+    categoria: 'Escuela de Adultos (Iniciación y Perf.)',
+    badgeColor: 'bg-[#00226D] text-white',
+    headerBg: 'bg-[#00226D]',
+    borderAccent: 'border-[#00226D]/20 hover:border-[#ED1C24]/50',
+    proximamente: false,
     turnos: [
-      { dias: 'Lunes a Viernes', hora: '17:00 – 19:00' },
-      { dias: 'Sábado', hora: '09:00 – 11:00' },
+      { dias: 'Lunes, Miércoles y Viernes', hora: '09:00 – 10:00 h' },
+      { dias: 'Martes y Jueves', hora: '19:00 – 20:00 h' },
     ],
   },
   {
-    categoria: 'Natación Máster',
-    color: 'from-ocean-400 to-cyan-500',
-    borderAccent: 'border-ocean-400/30',
-    turnos: [
-      { dias: 'Lunes, Miércoles y Viernes', hora: '20:00 – 21:30' },
-      { dias: 'Sábado', hora: '11:00 – 12:30' },
-    ],
+    categoria: 'Natación para Bebés',
+    badgeColor: 'bg-slate-700 text-white',
+    headerBg: 'bg-[#00123D]',
+    borderAccent: 'border-slate-300 hover:border-[#ED1C24]/30',
+    proximamente: true,
+    mensaje: 'Próximamente / Consultar disponibilidad en recepción',
+    turnos: [],
   },
 ];
 ---
 
-<section id="horarios" class="relative section-padding bg-ocean-950 scroll-mt-24">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/3 rounded-full blur-3xl"></div>
-
+<section id="horarios" class="relative section-padding bg-[#F4F7FF] scroll-mt-24">
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-400/10 text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-4">
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#ED1C24]/10 text-[#ED1C24] text-xs font-bold tracking-widest uppercase mb-4 font-heading">
         Horarios de Entrenamiento
       </span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-        Planifica tu <span class="gradient-text">semana</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#00226D] mb-4 font-heading">
+        Planifica tu <span class="text-[#ED1C24]">semana</span>
       </h2>
-      <p class="max-w-2xl mx-auto text-white/60 text-base sm:text-lg">
-        Consulta los turnos de cada categoría y encuentra el horario que mejor se adapte a ti.
+      <p class="max-w-2xl mx-auto text-slate-600 text-base sm:text-lg">
+        Consulta los turnos oficiales de cada grupo en las instalaciones del C.D. Santa Rosa.
       </p>
     </div>
 
     <!-- Schedule Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-      {horarios.map((cat) => (
-        <div class={`glass-card hover-lift overflow-hidden border ${cat.borderAccent}`}>
-          <!-- Category header -->
-          <div class={`px-6 py-4 bg-gradient-to-r ${cat.color}`}>
-            <h3 class="text-lg font-bold text-ocean-950">{cat.categoria}</h3>
-          </div>
-          <!-- Schedule rows -->
-          <div class="p-6 space-y-3">
-            {cat.turnos.map((turno, i) => (
-              <div class={`flex items-center justify-between py-3 ${i < cat.turnos.length - 1 ? 'border-b border-white/10' : ''}`}>
-                <div class="flex items-center gap-3">
-                  <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                  </svg>
-                  <span class="text-white/80 text-sm font-medium">{turno.dias}</span>
+      {horarios.map((cat, idx) => (
+        <div class={`card-modern overflow-hidden border ${cat.borderAccent} flex flex-col justify-between reveal-delay-${idx + 1}`}>
+          <div>
+            <!-- Category header -->
+            <div class={`px-6 py-5 ${cat.headerBg} text-white flex items-center justify-between`}>
+              <h3 class="text-lg font-bold font-heading">{cat.categoria}</h3>
+            </div>
+            <!-- Schedule rows -->
+            <div class="p-6 space-y-4 bg-white">
+              {cat.proximamente ? (
+                <div class="py-8 text-center space-y-3">
+                  <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
+                    Próximamente
+                  </span>
+                  <p class="text-[#00226D] font-medium text-sm leading-relaxed">
+                    Consultar disponibilidad en la recepción del C.D. Santa Rosa.
+                  </p>
                 </div>
-                <span class="text-white font-semibold text-sm bg-white/10 px-3 py-1 rounded-full">{turno.hora}</span>
-              </div>
-            ))}
+              ) : (
+                cat.turnos.map((turno, i) => (
+                  <div class={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 py-3 ${i < cat.turnos.length - 1 ? 'border-b border-slate-100' : ''}`}>
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5 text-[#ED1C24] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                      </svg>
+                      <span class="text-[#00226D] text-sm font-semibold">{turno.dias}</span>
+                    </div>
+                    <span class="text-[#00226D] font-bold text-xs sm:text-sm bg-slate-100 px-3 py-1 rounded-full border border-slate-200">{turno.hora}</span>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         </div>
       ))}
     </div>
 
     <!-- Info note -->
-    <div class="glass-card p-6 md:p-8 max-w-3xl mx-auto text-center">
+    <div class="card-modern p-6 md:p-8 max-w-3xl mx-auto text-center border-l-4 border-l-[#ED1C24] reveal-delay-3">
       <div class="flex items-center justify-center gap-3 mb-3">
-        <svg class="w-6 h-6 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg class="w-6 h-6 text-[#ED1C24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
         </svg>
-        <h4 class="text-lg font-bold text-white">Información sobre cuotas</h4>
+        <h4 class="text-lg font-bold text-[#00226D] font-heading">Información sobre cuotas y prueba de nivel</h4>
       </div>
-      <p class="text-white/60 text-sm leading-relaxed">
-        Las cuotas mensuales varían según la categoría y el número de sesiones semanales. Todos los nuevos nadadores realizan una
-        <strong class="text-cyan-400"> prueba de nivel gratuita</strong> antes de asignarse a su grupo. Consulta directamente con nosotros para conocer las tarifas actualizadas.
+      <p class="text-slate-600 text-sm leading-relaxed mb-4">
+        Llama al <a href="tel:928346038" class="text-[#ED1C24] font-extrabold hover:underline">928 346 038</a> de Lunes a Viernes de 16:00 a 19:30 h para consultar cuotas y solicitar prueba de nivel.
       </p>
+      <div class="inline-block px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs font-medium text-[#00226D]">
+        Matrícula e inscripción formal presencialmente en el C.D. Santa Rosa.
+      </div>
     </div>
   </div>
 </section>
