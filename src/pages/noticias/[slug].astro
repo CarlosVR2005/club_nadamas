@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { noticias } from '../../data/noticias';
+import { noticias, formatCategoria } from '../../data/noticias';
 
 export function getStaticPaths() {
   return noticias.map((noticia) => ({
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { noticia } = Astro.props;
+const paragrafos = noticia.contenido.split('\n\n');
 ---
 
 <Layout
@@ -36,14 +37,12 @@ const { noticia } = Astro.props;
       <!-- Meta badges -->
       <div class="flex flex-wrap items-center gap-3 text-xs mb-4">
         <span class="px-3 py-1 rounded-full bg-[#ED1C24]/10 text-[#ED1C24] font-bold uppercase tracking-wider border border-[#ED1C24]/30">
-          {noticia.categoria}
+          {formatCategoria(noticia.categoria)}
         </span>
         <span class="text-slate-400">•</span>
         <span class="text-slate-500 font-medium">{noticia.fecha}</span>
         <span class="text-slate-400">•</span>
-        <span class="text-slate-500 font-medium">Por {noticia.autor}</span>
-        <span class="text-slate-400">•</span>
-        <span class="text-slate-500 font-medium">Lectura: {noticia.tiempoLectura}</span>
+        <span class="text-slate-500 font-medium">C.D.N. Nadamás Las Marinas</span>
       </div>
 
       <!-- Article Title -->
@@ -56,10 +55,10 @@ const { noticia } = Astro.props;
         {noticia.resumen}
       </p>
 
-      <!-- Featured Image -->
-      <div class="relative h-64 sm:h-96 md:h-[450px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl mb-12">
+      <!-- Featured Main Image -->
+      <div class="relative h-64 sm:h-96 md:h-[480px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl mb-12">
         <img
-          src={noticia.imagen}
+          src={noticia.imagenPrincipal}
           alt={noticia.titulo}
           class="w-full h-full object-cover"
         />
@@ -70,50 +69,36 @@ const { noticia } = Astro.props;
         </div>
       </div>
 
-      <!-- Article Body -->
-      <div class="space-y-6 text-slate-700 text-base md:text-lg leading-relaxed font-normal">
-        <p class="text-[#00226D] font-semibold text-lg md:text-xl leading-relaxed border-l-4 border-[#ED1C24] pl-4 py-2 bg-slate-50 rounded-r-xl">
-          {noticia.contenido.introduccion}
-        </p>
-
-        {noticia.contenido.parrafos.map((p) => (
-          <p class="text-slate-700">{p}</p>
+      <!-- Article Body Paragraphs -->
+      <div class="space-y-6 text-slate-700 text-base md:text-lg leading-relaxed font-normal mb-12">
+        {paragrafos.map((para, idx) => (
+          <p class={idx === 0 ? "text-[#00226D] font-semibold text-lg md:text-xl leading-relaxed border-l-4 border-[#ED1C24] pl-4 py-2 bg-slate-50 rounded-r-xl" : "text-slate-700 leading-relaxed"}>
+            {para}
+          </p>
         ))}
-
-        <!-- Results Table (if present) -->
-        {noticia.contenido.destacadosResultados && noticia.contenido.destacadosResultados.length > 0 && (
-          <div class="my-8 card-modern p-6 md:p-8 border-l-4 border-l-[#ED1C24]">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="text-3xl">🏆</span>
-              <h3 class="text-xl font-bold text-[#00226D] font-heading">Resultados Destacados</h3>
-            </div>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse">
-                <thead>
-                  <tr class="border-b border-slate-200 text-[#00226D] text-xs font-bold uppercase tracking-wider">
-                    <th class="py-3 px-4">Deportista / Relevo</th>
-                    <th class="py-3 px-4">Prueba / Categoría</th>
-                    <th class="py-3 px-4">Resultado</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 text-sm">
-                  {noticia.contenido.destacadosResultados.map((res) => (
-                    <tr class="hover:bg-slate-50 transition-colors">
-                      <td class="py-3.5 px-4 font-bold text-[#00226D]">{res.atleta}</td>
-                      <td class="py-3.5 px-4 text-slate-600">{res.prueba}</td>
-                      <td class="py-3.5 px-4 font-extrabold text-[#ED1C24]">{res.puesto}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
-        <p class="text-[#00226D] font-medium text-lg pt-4">
-          {noticia.contenido.conclusion}
-        </p>
       </div>
+
+      <!-- Article Image Gallery (Multiple Images Support) -->
+      {noticia.imagenes && noticia.imagenes.length > 0 && (
+        <div class="my-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">📸</span>
+            <h3 class="text-xl font-bold text-[#00226D] font-heading">Galería Fotográfica de la Noticia</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {noticia.imagenes.map((imgUrl, imgIdx) => (
+              <div class="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+                <img
+                  src={imgUrl}
+                  alt={`Imagen ${imgIdx + 1} de ${noticia.titulo}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <!-- Share & CTA Footer Box -->
       <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 card-modern p-6 bg-slate-50">

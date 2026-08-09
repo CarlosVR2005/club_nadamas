@@ -29,31 +29,40 @@ const achievements = [
 
 const vitrina = [
   {
-    imagen: '/campeones/podio.png',
-    titulo: 'Podio Regional Canario',
-    deportista: 'Marcos Santana',
-    categoria: '🥇 100m y 200m Libre',
-    descripcion: 'Doble medalla de oro en el Campeonato de Canarias Absoluto.',
-    badge: '🥇 Oro Regional',
+    imagen: '/campeones/herminio-campeon.jpeg',
+    titulo: 'Campeonato de España (Sabadell)',
+    deportista: 'Herminio Fernández',
+    categoria: '🥇 Triple Campeón de España (Gen. 2008)',
+    descripcion: 'Pleno histórico de victorias: Campeón de España de la generación 2008 en 400m, 800m y 1.500m libres.',
+    badge: '🥇 3 Oros Nacionales',
     badgeBg: 'bg-amber-500 text-white shadow-lg',
   },
   {
-    imagen: '/campeones/medalla.png',
-    titulo: 'Campeonato de Canarias',
-    deportista: 'Lucía Betancort',
-    categoria: '🥈 Medalla de Plata & Oro Juvenil',
-    descripcion: 'Medallista de plata absoluta y oro de la categoría juvenil en piscina de 50m.',
-    badge: '🥈 Plata Absoluta',
-    badgeBg: 'metallic-silver-badge silver-sheen font-bold shadow-md',
+    imagen: '/campeones/diego-campeon.jpeg',
+    titulo: 'Campeonato de España',
+    deportista: 'Diego Vázquez',
+    categoria: '🥇 Campeón de España (100m Libres)',
+    descripcion: 'Gran protagonista nacional: Campeón de España de 100m libres con 4 medallas (🥇 100m libres, 🥈 50m libres, 🥈 50m mariposa y 🥉 100m mariposa).',
+    badge: '🥇 Campeón de España',
+    badgeBg: 'bg-[#ED1C24] text-white shadow-lg border border-red-400/40',
   },
   {
-    imagen: '/campeones/equipo.png',
-    titulo: 'Relevo 4x100m Estilos',
-    deportista: 'Equipo Femenino Nadamás',
-    categoria: '🏆 Récord Insular de Lanzarote',
-    descripcion: 'Victoria histórica por equipos representando con orgullo al C.D. Santa Rosa.',
-    badge: '🏆 Récord Insular',
-    badgeBg: 'bg-[#ED1C24] text-white shadow-lg border border-red-400/40',
+    imagen: '/campeones/Andrea-campeona.jpg',
+    titulo: 'Campeonato Nacional (Cádiz)',
+    deportista: 'Andrea Fraga',
+    categoria: '🥇 4 Medallas & 3 Récords Regionales',
+    descripcion: 'Debut estelar en su 1er Nacional junto a Nacho Villalba: 4 medallas (🥇🥈🥈🥉), 3 récords regionales y 5 MMP.',
+    badge: '🥇 4 Medallas Nacionales',
+    badgeBg: 'bg-amber-500 text-white shadow-lg',
+  },
+  {
+    imagen: '/campeones/Naira-Campeona.jpg',
+    titulo: 'Campeonato de España Junior',
+    deportista: 'Naira Jaén Serra',
+    categoria: '🥉 3ª de España (18 años) · 800m Libre',
+    descripcion: 'Medalla de bronce nacional en la final del Campeonato de España Junior con una marca de 9:15.46.',
+    badge: '🥉 Bronce Nacional',
+    badgeBg: 'bg-amber-600 text-white shadow-lg',
   },
 ];
 ---
@@ -114,11 +123,6 @@ const vitrina = [
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-[#00123D] via-transparent to-transparent opacity-80"></div>
-              <div class="absolute top-4 left-4">
-                <span class={`px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider ${item.badgeBg}`}>
-                  {item.badge}
-                </span>
-              </div>
             </div>
             <div class="p-6 bg-[#00174C] flex-1 flex flex-col justify-between">
               <div>
@@ -157,13 +161,13 @@ const vitrina = [
           </p>
           <div class="flex flex-wrap gap-3">
             <div class="px-4 py-2 rounded-full bg-[#ED1C24]/20 border border-[#ED1C24]/40 text-[#ED1C24] text-sm font-bold">
-              +50 Medallas Regionales
+              +300 Medallas Regionales
             </div>
             <div class="px-4 py-2 rounded-full metallic-silver-badge text-xs font-bold shadow-md">
-              🥈 +15 Plata & Oro Nacionales
+              🥈 +40 Medallas Nacionales
             </div>
             <div class="px-4 py-2 rounded-full bg-[#00226D] border border-blue-400/30 text-blue-200 text-sm font-semibold">
-              +20 Años de Historia
+              Oficialmente desde 2008
             </div>
           </div>
         </div>

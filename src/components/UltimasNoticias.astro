@@ -1,11 +1,12 @@
 ---
 /* UltimasNoticias: Homepage preview section of latest news & competition results */
-import { noticias } from '../data/noticias';
+import { noticias, formatCategoria } from '../data/noticias';
 
 const noticiasPreview = noticias.slice(0, 3);
 ---
 
 <section id="noticias-preview" class="relative section-padding bg-white scroll-mt-24">
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 reveal">
@@ -33,10 +34,10 @@ const noticiasPreview = noticias.slice(0, 3);
       {noticiasPreview.map((item, idx) => (
         <a href={`/noticias/${item.slug}`} class={`card-modern overflow-hidden border-slate-200 flex flex-col group hover:border-[#ED1C24]/50 reveal-delay-${idx + 1}`}>
           <div class="relative h-48 overflow-hidden">
-            <img src={item.imagen} alt={item.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img src={item.imagenPrincipal} alt={item.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute top-3 left-3">
               <span class="px-3 py-1 rounded-full bg-[#ED1C24] text-white text-xs font-extrabold shadow-sm">
-                {item.categoria}
+                {formatCategoria(item.categoria)}
               </span>
             </div>
           </div>
@@ -44,8 +45,6 @@ const noticiasPreview = noticias.slice(0, 3);
             <div>
               <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
                 <span>{item.fecha}</span>
-                <span>•</span>
-                <span>{item.tiempoLectura}</span>
               </div>
               <h3 class="text-lg font-bold text-[#00226D] mb-3 font-heading group-hover:text-[#ED1C24] transition-colors leading-snug">
                 {item.titulo}
@@ -56,7 +55,7 @@ const noticiasPreview = noticias.slice(0, 3);
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
               <span class="text-xs font-bold text-[#00226D] flex items-center gap-1">
-                <span>🏆</span> {item.autor}
+                <span>🏆</span> C.D.N. Nadamás
               </span>
               <span class="text-xs text-[#ED1C24] font-extrabold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                 Leer noticia →

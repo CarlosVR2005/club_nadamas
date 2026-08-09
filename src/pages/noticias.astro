@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { noticias } from '../data/noticias';
+import { noticias, formatCategoria } from '../data/noticias';
+
+const destacado = noticias[0];
+const restNoticias = noticias.slice(1);
 ---
 
 <Layout
@@ -26,31 +29,55 @@ import { noticias } from '../data/noticias';
   <section class="py-16 bg-[#F4F7FF]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <!-- Featured Article (First one) -->
-      {noticias.filter(n => n.destacado).map((art) => (
-        <a href={`/noticias/${art.slug}`} class="block card-modern overflow-hidden border-slate-200 hover:border-[#ED1C24]/50 mb-16 group reveal">
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap justify-center items-center gap-3 mb-12 reveal" id="category-filters">
+        <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-[#00226D] text-white shadow-md">
+          Todas las Noticias
+        </button>
+        <button data-filter="regionales" class="filter-btn px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-white text-[#00226D] hover:bg-slate-100 border border-slate-200">
+          🏆 Regionales
+        </button>
+        <button data-filter="nacionales" class="filter-btn px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-white text-[#00226D] hover:bg-slate-100 border border-slate-200">
+          🥇 Nacionales
+        </button>
+        <button data-filter="aguas-abiertas" class="filter-btn px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-white text-[#00226D] hover:bg-slate-100 border border-slate-200">
+          🌊 Aguas Abiertas
+        </button>
+      </div>
+
+      <!-- Featured Article -->
+      {destacado && (
+        <a
+          href={`/noticias/${destacado.slug}`}
+          data-category={destacado.categoria}
+          class="noticia-card block card-modern overflow-hidden border-slate-200 hover:border-[#ED1C24]/50 mb-12 group reveal"
+        >
           <div class="grid lg:grid-cols-12 gap-8 items-center p-6 lg:p-8">
             <div class="lg:col-span-7 relative h-64 lg:h-96 rounded-2xl overflow-hidden">
-              <img src={art.imagen} alt={art.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src={destacado.imagenPrincipal}
+                alt={destacado.titulo}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
               <div class="absolute top-4 left-4">
                 <span class="px-3 py-1 rounded-full bg-[#ED1C24] text-white font-extrabold text-xs shadow-lg uppercase tracking-wide">
-                  Destacado
+                  Noticia Destacada
                 </span>
               </div>
             </div>
             <div class="lg:col-span-5 flex flex-col justify-center">
               <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
-                <span class="px-3 py-1 rounded-full bg-[#00226D]/10 text-[#00226D] font-bold">{art.categoria}</span>
+                <span class="px-3 py-1 rounded-full bg-[#00226D]/10 text-[#00226D] font-extrabold">
+                  {formatCategoria(destacado.categoria)}
+                </span>
                 <span>•</span>
-                <span>{art.fecha}</span>
-                <span>•</span>
-                <span>{art.tiempoLectura}</span>
+                <span>{destacado.fecha}</span>
               </div>
-              <h2 class="text-2xl lg:text-3xl font-extrabold text-[#00226D] mb-4 font-heading group-hover:text-[#ED1C24] transition-colors">
-                {art.titulo}
+              <h2 class="text-2xl lg:text-3xl font-extrabold text-[#00226D] mb-4 font-heading group-hover:text-[#ED1C24] transition-colors leading-snug">
+                {destacado.titulo}
               </h2>
               <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                {art.resumen}
+                {destacado.resumen}
               </p>
               <div class="inline-flex items-center gap-2 text-[#ED1C24] font-bold text-sm group-hover:gap-3 transition-all">
                 <span>Leer noticia completa</span>
@@ -61,36 +88,42 @@ import { noticias } from '../data/noticias';
             </div>
           </div>
         </a>
-      ))}
+      )}
 
       <!-- Grid for other articles -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {noticias.filter(n => !n.destacado).map((item, idx) => (
-          <a href={`/noticias/${item.slug}`} class={`card-modern overflow-hidden border-slate-200 flex flex-col group hover:border-[#ED1C24]/40 reveal-delay-${(idx % 3) + 1}`}>
-            <div class="relative h-48 overflow-hidden">
-              <img src={item.imagen} alt={item.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        {restNoticias.map((item, idx) => (
+          <a
+            href={`/noticias/${item.slug}`}
+            data-category={item.categoria}
+            class={`noticia-card card-modern overflow-hidden border-slate-200 flex flex-col group hover:border-[#ED1C24]/40 reveal-delay-${(idx % 3) + 1}`}
+          >
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src={item.imagenPrincipal}
+                alt={item.titulo}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
               <div class="absolute top-3 left-3">
-                <span class="px-3 py-1 rounded-full bg-[#00226D] text-white text-xs font-bold shadow-sm">
-                  {item.categoria}
+                <span class="px-3 py-1 rounded-full bg-[#00226D] text-white text-xs font-bold shadow-md">
+                  {formatCategoria(item.categoria)}
                 </span>
               </div>
             </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="p-6 flex-1 flex flex-col justify-between bg-white">
               <div>
                 <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
                   <span>{item.fecha}</span>
-                  <span>•</span>
-                  <span>{item.tiempoLectura}</span>
                 </div>
-                <h3 class="text-lg font-bold text-[#00226D] mb-3 font-heading group-hover:text-[#ED1C24] transition-colors">
+                <h3 class="text-lg font-bold text-[#00226D] mb-3 font-heading group-hover:text-[#ED1C24] transition-colors leading-snug">
                   {item.titulo}
                 </h3>
-                <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                <p class="text-slate-600 text-xs leading-relaxed mb-4 line-clamp-3">
                   {item.resumen}
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-slate-400 font-medium">{item.autor}</span>
+                <span class="text-xs text-slate-400 font-semibold">C.D.N. Nadamás</span>
                 <span class="text-xs text-[#ED1C24] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                   Leer noticia →
                 </span>
@@ -124,3 +157,30 @@ import { noticias } from '../data/noticias';
     </div>
   </section>
 </Layout>
+
+<script>
+  // ── Filter noticias by category ──
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.noticia-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-[#00226D]', 'text-white', 'shadow-md');
+        b.classList.add('bg-white', 'text-[#00226D]', 'border', 'border-slate-200');
+      });
+      btn.classList.remove('bg-white', 'text-[#00226D]', 'border', 'border-slate-200');
+      btn.classList.add('bg-[#00226D]', 'text-white', 'shadow-md');
+
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach((card) => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

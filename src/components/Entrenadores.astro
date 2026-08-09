@@ -1,0 +1,90 @@
+---
+import { entrenadores } from '../data/entrenadores';
+---
+
+<section id="entrenadores" class="relative section-padding bg-[#F4F7FF] scroll-mt-24">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#ED1C24]/10 text-[#ED1C24] text-xs font-bold tracking-widest uppercase mb-4 font-heading border border-[#ED1C24]/20">
+        Equipo Técnico
+      </span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#00226D] mb-4 font-heading">
+        Nuestros <span class="text-[#ED1C24]">Entrenadores</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-slate-600 text-base sm:text-lg">
+        Técnicos titulados de alto nivel comprometidos con la enseñanza, la superación personal y la formación de campeones en las instalaciones del C.D. Santa Rosa.
+      </p>
+    </div>
+
+    <!-- Coaches Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
+      {entrenadores.map((coach, idx) => (
+        <div class={`card-modern overflow-hidden border-slate-200 hover:border-[#ED1C24]/50 flex flex-col justify-between group reveal-delay-${idx + 1}`}>
+          <div>
+            <!-- Coach Photo -->
+            <div class="relative h-64 overflow-hidden bg-[#00123D]">
+              <img
+                src={coach.imagen}
+                alt={coach.nombre}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#00123D]/90 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4">
+                <span class="inline-block px-2.5 py-1 rounded-full bg-[#ED1C24] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-md">
+                  {coach.experiencia}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 bg-white">
+              <span class="text-xs font-bold text-[#ED1C24] uppercase tracking-wider block mb-1">
+                {coach.especialidad}
+              </span>
+              <h3 class="text-xl font-bold text-[#00226D] font-heading group-hover:text-[#ED1C24] transition-colors mb-2">
+                {coach.nombre}
+              </h3>
+              <p class="text-slate-600 text-xs font-semibold mb-3">
+                {coach.cargo}
+              </p>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 mb-4">
+                <p class="text-slate-600 text-xs italic leading-relaxed">
+                  "{coach.cita}"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom bar -->
+          <div class="px-6 pb-6 pt-0 bg-white">
+            <a
+              href="/entrenadores"
+              class="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#00226D] hover:text-[#ED1C24] transition-colors group/link"
+            >
+              <span>Ver perfil y titulación</span>
+              <svg class="w-3.5 h-3.5 text-[#ED1C24] group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA to dedicated page -->
+    <div class="text-center reveal">
+      <a
+        href="/entrenadores"
+        class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#00226D] hover:bg-[#00123D] text-white font-extrabold text-sm transition-all hover:scale-105 shadow-xl border border-blue-400/20"
+        id="cta-ver-entrenadores"
+      >
+        <span>Conoce al equipo técnico completo en detalle</span>
+        <svg class="w-4 h-4 text-[#ED1C24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

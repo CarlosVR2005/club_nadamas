@@ -4,7 +4,7 @@
 @theme {
   --color-brand-red: #ED1C24;
   --color-brand-red-hover: #D0161D;
-  
+
   --color-navy-950: #00123D;
   --color-navy-900: #00226D;
   --color-navy-800: #082E85;
@@ -22,9 +22,16 @@
 }
 
 /* ── Base Styles ── */
+:root {
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
 }
 
 body {
@@ -32,11 +39,38 @@ body {
   font-family: var(--font-sans);
   background-color: #ffffff;
   color: #00226D;
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* ── Prevent Mobile Browser Force-Dark Inversions ── */
+@media (prefers-color-scheme: dark) {
+  :root, html, body {
+    color-scheme: light !important;
+    background-color: #ffffff !important;
+    color: #00226D !important;
+  }
+
+  /* Keep cards and headings crisp and legible */
+  .card-modern {
+    background-color: #ffffff !important;
+    color: #00226D !important;
+  }
+
+  .card-navy {
+    background-color: #00226D !important;
+    color: #ffffff !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
@@ -44,13 +78,16 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #00123D;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #ED1C24;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #D0161D;
 }
@@ -78,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: #ED1C24;
 }
 
 /* ── Metallic Silver Reflection Utilities ── */
@@ -86,6 +124,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: #ffffff;
 }
 
 .metallic-silver-badge {
@@ -111,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     transform: translateX(-150%) rotate(25deg);
   }
+
   100% {
     transform: translateX(250%) rotate(25deg);
   }
@@ -128,12 +168,10 @@ h1, h2, h3, h4, h5, h6 {
   left: -50%;
   width: 60%;
   height: 200%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%);
   transform: rotate(25deg);
   pointer-events: none;
   animation: silver-shimmer 6s infinite ease-in-out;
@@ -177,6 +215,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link-underline {
   position: relative;
 }
+
 .nav-link-underline::after {
   content: '';
   position: absolute;
@@ -188,6 +227,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
   transition: width 0.3s ease, left 0.3s ease;
 }
+
 .nav-link-underline:hover::after {
   width: 80%;
   left: 10%;

@@ -23,6 +23,7 @@
       <nav class="hidden lg:flex items-center gap-1" id="desktop-nav">
         <a href="/#inicio" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">Inicio</a>
         <a href="/#palmares" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">El Club</a>
+        <a href="/entrenadores" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">Entrenadores</a>
         <a href="/#programas" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">Categorías</a>
         <a href="/#horarios" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">Horarios</a>
         <a href="/#muro-campeones" class="nav-link nav-link-underline px-3 py-2 text-sm font-semibold text-[#00226D] hover:text-[#ED1C24] transition-colors rounded-lg">Palmarés</a>
@@ -65,6 +66,7 @@
       <div class="max-w-7xl mx-auto px-4 py-6 space-y-1">
         <a href="/#inicio" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">Inicio</a>
         <a href="/#palmares" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">El Club</a>
+        <a href="/entrenadores" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">Entrenadores</a>
         <a href="/#programas" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">Categorías</a>
         <a href="/#horarios" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">Horarios</a>
         <a href="/#muro-campeones" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-[#00226D] hover:text-[#ED1C24] hover:bg-slate-50 rounded-xl transition-colors">Palmarés</a>
@@ -92,9 +94,9 @@
   function updateHeader() {
     if (!header) return;
     if (window.scrollY > 40) {
-      header.classList.add('bg-ocean-900/90', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/20');
+      header.classList.add('bg-white/95', 'shadow-md');
     } else {
-      header.classList.remove('bg-ocean-900/90', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/20');
+      header.classList.remove('bg-white/95', 'shadow-md');
     }
   }
   window.addEventListener('scroll', updateHeader, { passive: true });
