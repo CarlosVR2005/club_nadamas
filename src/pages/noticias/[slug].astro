@@ -11,10 +11,15 @@ export function getStaticPaths() {
 
 const { noticia } = Astro.props;
 const paragrafos = noticia.contenido.split('\n\n');
+
+// Combine and deduplicate images for the slider
+const allImages = Array.from(
+  new Set([noticia.imagenPrincipal, ...(noticia.imagenes || [])])
+);
 ---
 
 <Layout
-  title={`${noticia.titulo} | C.D. Nadamás Las Marinas`}
+  title={`${noticia.titulo} | C.D. Nadamás Santa Rosa`}
   description={noticia.resumen}
 >
   <!-- Article Header & Body -->
@@ -42,7 +47,7 @@ const paragrafos = noticia.contenido.split('\n\n');
         <span class="text-slate-400">•</span>
         <span class="text-slate-500 font-medium">{noticia.fecha}</span>
         <span class="text-slate-400">•</span>
-        <span class="text-slate-500 font-medium">C.D.N. Nadamás Las Marinas</span>
+        <span class="text-slate-500 font-medium">C.D. Nadamás Santa Rosa</span>
       </div>
 
       <!-- Article Title -->
@@ -55,46 +60,131 @@ const paragrafos = noticia.contenido.split('\n\n');
         {noticia.resumen}
       </p>
 
-      <!-- Featured Main Image -->
-      <div class="relative h-64 sm:h-96 md:h-[480px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl mb-12">
-        <img
-          src={noticia.imagenPrincipal}
-          alt={noticia.titulo}
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#00123D]/80 via-transparent to-transparent"></div>
-        <div class="absolute bottom-4 left-6 right-6 flex justify-between items-center text-xs text-white font-medium">
-          <span>C.D. Nadamás Las Marinas · C.D. Santa Rosa</span>
-          <span class="hidden sm:inline">Costa Teguise, Lanzarote</span>
+      <!-- Featured Main Interactive Slider / Carousel with True Aspect Ratio -->
+      <div id="news-carousel" class="relative group min-h-[350px] sm:min-h-[450px] md:min-h-[550px] max-h-[750px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-12 bg-[#000d2b]">
+        <!-- Slides Container -->
+        <div id="carousel-slides" class="relative w-full h-full flex items-center justify-center min-h-[350px] sm:min-h-[450px] md:min-h-[550px]">
+          {allImages.map((imgUrl, i) => (
+            <div
+              class={`carousel-slide absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center ${i === 0 ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'}`}
+              data-slide-index={i}
+            >
+              <!-- Blurred Background for Letterboxing -->
+              <img
+                src={imgUrl}
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110 pointer-events-none select-none"
+              />
+
+              <!-- Real Aspect Ratio Main Image (No cropping) -->
+              <img
+                src={imgUrl}
+                alt={`Fotografía ${i + 1} de ${noticia.titulo}`}
+                class="open-lightbox relative z-10 max-h-[550px] w-auto max-w-full object-contain cursor-zoom-in transition-transform duration-300 hover:scale-[1.01] shadow-2xl rounded-lg"
+                data-full-img={imgUrl}
+              />
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-[#000d2b]/80 via-transparent to-black/30 pointer-events-none"></div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Zoom Hint Badge -->
+        <div class="absolute top-4 left-4 z-20 pointer-events-none flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-semibold border border-white/20 shadow-lg">
+          <svg class="w-4 h-4 text-[#ED1C24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+          </svg>
+          <span>Haz clic en la foto para ver a tamaño real</span>
+        </div>
+
+        <!-- Prev/Next Controls (only if more than 1 image) -->
+        {allImages.length > 1 && (
+          <>
+            <button
+              id="carousel-prev"
+              aria-label="Foto anterior"
+              class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-[#ED1C24] text-white backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 border border-white/30"
+            >
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+
+            <button
+              id="carousel-next"
+              aria-label="Foto siguiente"
+              class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-[#ED1C24] text-white backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 border border-white/30"
+            >
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <!-- Dots Indicators -->
+            <div class="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center gap-2">
+              {allImages.map((_, i) => (
+                <button
+                  class={`carousel-dot w-3 h-3 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#ED1C24] w-8' : 'bg-white/60 hover:bg-white'}`}
+                  data-dot-index={i}
+                  aria-label={`Ir a la foto ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <!-- Counter Badge -->
+            <div class="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold border border-white/20 shadow-lg">
+              <span id="carousel-counter">1 / {allImages.length}</span>
+            </div>
+          </>
+        )}
+
+        <!-- Footer Info Tag -->
+        <div class="absolute bottom-4 left-6 z-20 hidden sm:flex items-center gap-2 text-xs text-white/90 font-semibold drop-shadow-md">
+          <span>C.D. Nadamás Santa Rosa</span>
+          <span>•</span>
+          <span>Costa Teguise, Lanzarote</span>
         </div>
       </div>
 
       <!-- Article Body Paragraphs -->
       <div class="space-y-6 text-slate-700 text-base md:text-lg leading-relaxed font-normal mb-12">
         {paragrafos.map((para, idx) => (
-          <p class={idx === 0 ? "text-[#00226D] font-semibold text-lg md:text-xl leading-relaxed border-l-4 border-[#ED1C24] pl-4 py-2 bg-slate-50 rounded-r-xl" : "text-slate-700 leading-relaxed"}>
+          <p class={idx === 0 ? "text-[#00226D] font-semibold text-lg md:text-xl leading-relaxed border-l-4 border-[#ED1C24] pl-4 py-2 bg-slate-50 rounded-r-xl" : "text-slate-700 leading-relaxed whitespace-pre-line"}>
             {para}
           </p>
         ))}
       </div>
 
-      <!-- Article Image Gallery (Multiple Images Support) -->
-      {noticia.imagenes && noticia.imagenes.length > 0 && (
+      <!-- Article Image Gallery (Multiple Images Support with Click to Open Lightbox) -->
+      {allImages.length > 1 && (
         <div class="my-12 pt-8 border-t border-slate-200">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="text-2xl">📸</span>
-            <h3 class="text-xl font-bold text-[#00226D] font-heading">Galería Fotográfica de la Noticia</h3>
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">📸</span>
+              <h3 class="text-xl font-bold text-[#00226D] font-heading">Galería Fotográfica de la Noticia</h3>
+            </div>
+            <span class="text-xs font-semibold text-slate-500">Haz clic en cualquier foto para abrir a tamaño real</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {noticia.imagenes.map((imgUrl, imgIdx) => (
-              <div class="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+            {allImages.map((imgUrl, imgIdx) => (
+              <button
+                class={`gallery-thumb open-lightbox relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md group transition-all duration-300 text-left ${imgIdx === 0 ? 'ring-4 ring-[#ED1C24] scale-105' : 'hover:scale-102'}`}
+                data-thumb-index={imgIdx}
+                data-full-img={imgUrl}
+                aria-label={`Ver foto ${imgIdx + 1} a tamaño real`}
+              >
                 <img
                   src={imgUrl}
                   alt={`Imagen ${imgIdx + 1} de ${noticia.titulo}`}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-              </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span class="text-white text-xs font-bold flex items-center gap-1.5">
+                    <span>🔍 Tamaño Real</span>
+                  </span>
+                </div>
+              </button>
             ))}
           </div>
         </div>
@@ -119,4 +209,193 @@ const paragrafos = noticia.contenido.split('\n\n');
 
     </div>
   </article>
+
+  <!-- Fullscreen Lightbox Modal (Tamaño Real) -->
+  <div
+    id="lightbox-modal"
+    class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300 cursor-zoom-out"
+    aria-modal="true"
+    role="dialog"
+  >
+    <!-- Close Button -->
+    <button
+      id="lightbox-close"
+      class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-[#ED1C24] text-white flex items-center justify-center text-2xl font-bold transition-all hover:scale-110 border border-white/20 shadow-2xl"
+      aria-label="Cerrar vista a tamaño real"
+    >
+      ✕
+    </button>
+
+    <!-- Fullscreen Real Size Image -->
+    <div class="relative max-w-full max-h-full flex items-center justify-center p-2">
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Fotografía a tamaño real"
+        class="max-w-full max-h-[92vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/20"
+      />
+    </div>
+  </div>
 </Layout>
+
+<script>
+  function initCarouselAndLightbox() {
+    const container = document.getElementById('news-carousel');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    // Lightbox functions
+    function openLightbox(url: string) {
+      if (lightboxModal && lightboxImg && url) {
+        lightboxImg.src = url;
+        lightboxModal.classList.remove('hidden');
+        lightboxModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      if (lightboxModal) {
+        lightboxModal.classList.add('hidden');
+        lightboxModal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxModal?.addEventListener('click', (e) => {
+      if (e.target === lightboxModal || e.target === lightboxImg) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    document.querySelectorAll<HTMLElement>('.open-lightbox').forEach((element) => {
+      element.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const target = e.currentTarget as HTMLElement;
+        const imgUrl = target.getAttribute('data-full-img') || (target as HTMLImageElement).src;
+        if (imgUrl) {
+          openLightbox(imgUrl);
+        }
+      });
+    });
+
+    if (!container) return;
+
+    const slides = container.querySelectorAll<HTMLElement>('.carousel-slide');
+    const dots = container.querySelectorAll<HTMLElement>('.carousel-dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const counter = document.getElementById('carousel-counter');
+    const thumbBtns = document.querySelectorAll<HTMLElement>('.gallery-thumb');
+
+    if (slides.length <= 1) return;
+
+    let currentIndex = 0;
+    let autoPlayTimer: any = null;
+
+    function showSlide(index: number) {
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
+          slide.classList.add('opacity-100', 'z-10', 'pointer-events-auto');
+        } else {
+          slide.classList.remove('opacity-100', 'z-10', 'pointer-events-auto');
+          slide.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('bg-[#ED1C24]', 'w-8');
+          dot.classList.remove('bg-white/60', 'w-3');
+        } else {
+          dot.classList.remove('bg-[#ED1C24]', 'w-8');
+          dot.classList.add('bg-white/60', 'w-3');
+        }
+      });
+
+      thumbBtns.forEach((thumb, idx) => {
+        if (idx === currentIndex) {
+          thumb.classList.add('ring-4', 'ring-[#ED1C24]', 'scale-105');
+        } else {
+          thumb.classList.remove('ring-4', 'ring-[#ED1C24]', 'scale-105');
+        }
+      });
+
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+      }
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 3800);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentIndex - 1);
+      startAutoPlay();
+    });
+
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentIndex + 1);
+      startAutoPlay();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
+        showSlide(idx);
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover
+    container.addEventListener('mouseenter', stopAutoPlay);
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch support for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 40) {
+        showSlide(currentIndex + 1);
+        startAutoPlay();
+      } else if (touchEndX - touchStartX > 40) {
+        showSlide(currentIndex - 1);
+        startAutoPlay();
+      }
+    }, { passive: true });
+
+    startAutoPlay();
+  }
+
+  document.addEventListener('DOMContentLoaded', initCarouselAndLightbox);
+  document.addEventListener('astro:page-load', initCarouselAndLightbox);
+</script>

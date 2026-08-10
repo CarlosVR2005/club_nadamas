@@ -22,125 +22,168 @@ export function formatCategoria(cat: Noticia['categoria']): string {
 
 export const noticias: Noticia[] = [
   {
-    slug: 'campeonato-canarias-absoluto',
-    titulo: 'El C.D.N. Nadamás Las Marinas se corona en el Campeonato de Canarias Absoluto con un gran medallero',
-    fecha: '4 de Agosto, 2026',
+    slug: 'campeonato-regional-canarias-junior-absoluto-verano-2026',
+    titulo: 'Espectacular actuación del C.D. Nadamás Santa Rosa en el Campeonato Regional de Canarias Junior y Absoluto de Verano 2026',
+    fecha: '5 de Julio, 2026',
     categoria: 'regionales',
-    resumen: 'Sensacional actuación del equipo en Las Palmas de Gran Canaria, conquistando múltiples oros y ratificando el liderazgo de la natación de Lanzarote.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1200&auto=format&fit=crop',
+    resumen: 'Brillante expedición de 6 nadadores en el C.N. Metropole (Gran Canaria), destacando múltiples medallas absolutas y un excelente rendimiento de todo el equipo.',
+    imagenPrincipal: '/noticias/regionales/regional-canarias-junior-absoluto-verano26-1.jpg',
     imagenes: [
-      'https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?q=80&w=1200&auto=format&fit=crop'
+      '/noticias/regionales/regional-canarias-junior-absoluto-verano26-1.jpg',
+      '/noticias/regionales/regional-canarias-junior-absoluto-verano26-2.jpg',
+      '/noticias/regionales/regional-canarias-junior-absoluto-verano26-3.jpg',
+      '/noticias/regionales/regional-canarias-junior-absoluto-verano26-4.jpg',
+      '/noticias/regionales/regional-canarias-junior-absoluto-verano26-5.jpg'
     ],
-    contenido: `El Club Deportivo Nadamás Las Marinas ha firmado una página dorada en la natación canaria tras su rotunda actuación en el Campeonato de Canarias Absoluto. En una intensa jornada disputada en la piscina olímpica, nuestra delegación de 18 nadadores formados en las instalaciones del C.D. Santa Rosa de Costa Teguise dominó de principio a fin.
+    contenido: `Del 3 al 5 de julio 6 nadadores del Club Nadamás Santa Rosa se desplazaron hasta Gran Canaria para participar en el Campeonato de Canarias en las instalaciones del C.N. Metropole.
 
-La jornada arrancó con pruebas de alta exigencia donde la preparación técnica y física del club se hizo evidente. Los nadadores del C.D.N. Nadamás lograron subirse al podio en distancias de velocidad y fondo, sumando un amplio botín de medallas que sitúan a Lanzarote en la élite del archipiélago.
+Clasificación final por clubes:
+• 5º puesto Junior Femenino
+• 6º puesto Absoluto Masculino
+• 7º puesto Absoluto Femenino
+• 8º puesto Junior Masculino
 
-Especial protagonismo tuvieron las pruebas de relevos, donde el trabajo en equipo y el espíritu de unión del club brillaron con luz propia. El cuerpo técnico ha destacado la disciplina y constancia diaria mostrada durante toda la temporada en la piscina de entrenamiento.
+Resultados destacados:
 
-Este magnífico resultado ratifica la consolidación del proyecto deportivo del C.D.N. Nadamás Las Marinas, demostrando que con trabajo diario y pasión por la natación, Costa Teguise es cantera insustituible de campeones regionales.`
+Herminio Fernández (2008):
+• 400L: 🥇 18 años y 🥈 Absoluto
+• 800L: 🥇 18 años y 🥈 Absoluto
+• 1500L: 🥇 18 años y 🥈 Absoluto
+• 100M: 🥇 18 años y 11º Absoluto
+• 200M: 🥇 18 años y 🥇 Absoluto
+
+Naira Jaén (2008):
+• 200L: 🥇 18 años y 🥈 Absoluta
+• 400L: 🥇 18 años y 🥇 Absoluta
+• 800L: 🥇 18 años y 🥇 Absoluta
+• 1500L: 🥇 18 años y 🥇 Absoluta
+• 400EST: 🥇 18 años y 4ª Absoluta
+
+Andreu Jaén (2006):
+• 200L: 13º Absoluto
+• 400L: 5º Absoluto
+• 800L: 4º Absoluto
+• 1500L: 5º Absoluto
+• 400EST: 8º Absoluto
+
+Besay Delgado (2010):
+• 50L: 11º 16 años
+• 100L: 6º 16 años
+• 200L: 4º 16 años
+• 50E: 6º 16 años
+• 100E: 5º 16 años
+
+Natalia Sasu (2008):
+• 100E: 🥉 18 años
+• 100L: 7ª 18 años
+• 50L: 8ª 18 años
+• 200L: 7ª 18 años
+• 50E: 8ª 18 años
+
+Matías Padrón (2008):
+• 100L: 6º 18 años
+• 200EST: 🥉 18 años
+
+Relevos:
+• 4x100L: 6º Absoluto (Besay Delgado, Matías Padrón, Andreu Jaén y Herminio Fernández)
+• 4x200L: 🥈 Absoluto (Besay Delgado, Matías Padrón, Andreu Jaén y Herminio Fernández)
+• 4x100EST Mixto: 4º Junior (Natalia Sasu, Matías Padrón, Herminio Fernández y Naira Jaén)
+
+Resultados destacados - Mejor Rendimiento (Puntos AQUA):
+• Herminio: 800L - 718 puntos 🥇 1º Junior
+• Naira: 800L - 677 puntos 🥈 2ª Junior
+
+¡Enhorabuena a todo el equipo! Próxima parada: Nacional Alevín, Infantil y Junior.
+
+Agradecimientos: CACT Lanzarote, Concejalía de Deportes de Teguise, Cabildo de Lanzarote, Deporte Canario (Gobierno de Canarias), Lanzarote Deportiva, Cadena SER Lanzarote, Radio Marca Lanzarote, Ayuntamiento de Teguise, GradaCero.es y La Voz de Lanzarote.`
   },
   {
-    slug: 'tercera-jornada-liga-insular-lanzarote',
-    titulo: 'Excelente actuación de la cantera en la 3ª Jornada de la Liga Insular de Lanzarote',
-    fecha: '28 de Julio, 2026',
-    categoria: 'regionales',
-    resumen: 'Los nadadores alevines e infantiles de Nadamás demostraron una evolución técnica brillante y grandes marcas personales en la piscina insular.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop',
-    imagenes: [
-      'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?q=80&w=1200&auto=format&fit=crop'
-    ],
-    contenido: `La cantera del C.D.N. Nadamás Las Marinas completó una jornada memorable en la 3ª cita de la Liga Insular de Lanzarote. Nuestros nadadores más jóvenes, pertenecientes a las categorías alevín e infantil, mostraron un despliegue de técnica, esfuerzo y compañerismo sobresaliente.
-
-A lo largo de la mañana se disputaron pruebas exigentes de estilos y braza, en las que más del 80% de los integrantes del club lograron rebajar sus registros personales. La evolución desde el inicio del curso evidencia el gran trabajo que se realiza a diario en la escuela del C.D. Santa Rosa.
-
-Los entrenadores felicitaron a los deportistas por su seriedad en la cámara de salida y su capacidad de gestionar los ritmos de nado. Los nadadores más noveles afrontaron sus pruebas con temple de veteranos, animados en todo momento por la afición de familias desplazadas a la grada.
-
-Con estos brillantes resultados, el club refuerza su posición en la tabla clasificatoria insular y asegura un futuro repleto de promesas deportivas para la natación de Lanzarote.`
-  },
-  {
-    slug: 'medalla-nacional-equipo-master-espana',
-    titulo: 'Medalla nacional para el equipo Máster en el Campeonato de España de Verano',
-    fecha: '18 de Julio, 2026',
+    slug: 'campeonato-espana-junior-exito-herminio-naira',
+    titulo: 'Histórico final en el Campeonato de España Junior: Herminio logra 3 Oros y Naira conquista un emotivo Bronce Nacional',
+    fecha: '10 de Agosto, 2026',
     categoria: 'nacionales',
-    resumen: 'La sección de nadadores adultos de Nadamás conquista el podio en la cita nacional celebrada ante los mejores clubes del país.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?q=80&w=1200&auto=format&fit=crop',
+    resumen: 'Herminio Fernández con 3 medallas de oro (400, 800 y 1500m libres) y Naira Jaén Serra con un heroico bronce nacional en 800m libres tras superar una fractura de muñeca cierran un campeonato inolvidable.',
+    imagenPrincipal: '/noticias/nacionales/campeonato-espana-junior-26.jpg',
     imagenes: [
-      'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop'
+      '/noticias/nacionales/campeonato-espana-junior-26.jpg',
+      '/campeones/herminio-campeon.jpeg',
+      '/campeones/Naira-Campeona.jpg'
     ],
-    contenido: `El equipo Máster del C.D.N. Nadamás Las Marinas ha alcanzado una gesta inolvidable tras proclamarse medallista en el Campeonato de España Máster de Verano. Nuestros nadadores adultos demostraron que la pasión por el agua y el espíritu competitivo no tienen edad.
+    contenido: `¡Campeonato de España Junior terminado! Nuestros deportistas Herminio Fernández y Naira Jaén Serra han puesto el broche de oro y bronce a una competición nacional histórica para el C.D. Nadamás Santa Rosa.
 
-En una competición de altísimo nivel técnico que reunió a cientos de nadadores de toda la geografía española, la representación lanzaroteña cuajó carreras estratégicamente impecables. El esfuerzo acumulado en los entrenamientos matutinos y vespertinos en el C.D. Santa Rosa dio sus frutos en el momento oportuno.
+Herminio con 3 oros (400m, 800m y 1.500m libres) y Naira con una medalla de bronce (800m libres con una marca de 9:15.46) cierran el campeonato en lo más alto del podio nacional.
 
-La medalla obtenida en el recinto nacional fue celebrada con enorme emoción por toda la expedición. Más allá del metal conquistado, la actuación sirvió para reivindicar el modelo de natación de adultos del club, donde priman la superación personal, la salud y el compañerismo.
+Felicidades a nuestros dos nadadores que han luchado hasta el final en una temporada que no ha sido del todo fácil. Destacar el enorme mérito y coraje de Naira, que después de una fractura en la muñeca que la mantuvo media temporada sin poder competir, ha logrado recuperarse y acabar con un podio a nivel nacional.
 
-El C.D.N. Nadamás Las Marinas regresa a Costa Teguise con el orgullo de llevar el nombre de Lanzarote a los puestos de honor de la natación máster en España.`
+¡Son un ejemplo de superación, disciplina y garra para todos nosotros!
+
+Agradecimiento especial a nuestros patrocinadores e instituciones por su continuo respaldo al deporte de Lanzarote: CACT Lanzarote, Concejalía de Deportes de Teguise, Cabildo de Lanzarote, Gobierno de Canarias (Deporte Canario), Lanzarote Deportiva, Cadena SER Lanzarote, Radio Marca Lanzarote, Ayuntamiento de Teguise, GradaCero.es y La Voz de Lanzarote.`
   },
   {
-    slug: 'convocados-seleccion-canaria-nacional',
-    titulo: 'Dos nadadores del club convocados con la Selección Canaria para el Nacional por Comunidades Autónomas',
-    fecha: '2 de Julio, 2026',
-    categoria: 'nacionales',
-    resumen: 'Reconocimiento al trabajo de base: la Federación Canaria premia el rendimiento de nuestros deportistas incluyéndolos en el combinado autonómico.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?q=80&w=1200&auto=format&fit=crop',
-    imagenes: [
-      'https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519315901367-f34ff9154487?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1200&auto=format&fit=crop'
-    ],
-    contenido: `Noticia histórica para la natación de Costa Teguise: la Federación Canaria de Natación ha hecho oficial la convocatoria de dos deportistas del C.D.N. Nadamás Las Marinas para integrar la Selección Canaria en el próximo Campeonato de España por Comunidades Autónomas.
-
-La convocatoria premia la regularidad y las mínimas nacionales conseguidas por ambos nadadores a lo largo de los diferentes controles de marcas en piscina de 50 metros. Su rendimiento en los entrenamientos diarios bajo la dirección de la dirección técnica del club ha sido clave para alcanzar esta meta internacional e interautonómica.
-
-Los dos deportistas representarán a Canarias midiéndose contra los mejores talentos del panorama estatal. Para la directiva y la masa social del C.D.N. Nadamás, su presencia en la selección autonómica constituye un enorme motivo de orgullo y un estímulo para todos los jóvenes de la cantera.
-
-Desde el C.D. Santa Rosa enviamos todo nuestro apoyo a nuestros nadadores internacionales, convencidos de que defenderán la gorra de la Selección Canaria con la garra y deportividad que caracterizan a Nadamás.`
-  },
-  {
-    slug: 'podio-historico-travesia-la-bocaina',
-    titulo: 'Podio histórico del equipo en la Travesía a Nado La Bocaina (Lanzarote - Fuerteventura)',
-    fecha: '20 de Junio, 2026',
+    slug: 'travesia-la-tinosa-copa-aguas-abiertas-lanzarote',
+    titulo: 'Exhibición del C.D. Nadamás Santa Rosa en la Travesía La Tiñosa: Podio completo de la General en la 1ª etapa de la Copa de Lanzarote',
+    fecha: '10 de Agosto, 2026',
     categoria: 'aguas-abiertas',
-    resumen: 'Nuestros especialista en aguas abiertas completan los 15 kilómetros de canal con un ritmo espectacular y subida al podio por clubes.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1200&auto=format&fit=crop',
+    resumen: 'El Club Nadamás demostró una vez más su potencial absoluto en aguas abiertas siendo todo el podio de la Clasificación General de nuestro club en la Travesía La Tiñosa.',
+    imagenPrincipal: '/noticias/aguas-abiertas/travesia-tinosa-1.jpg',
     imagenes: [
-      'https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1200&auto=format&fit=crop'
+      '/noticias/aguas-abiertas/travesia-tinosa-1.jpg',
+      '/noticias/aguas-abiertas/travesia-tinosa-2.jpg',
+      '/noticias/aguas-abiertas/travesia-tinosa-3.jpg'
     ],
-    contenido: `Los especialistas de aguas abiertas del C.D.N. Nadamás Las Marinas han escrito una de las páginas más épicas de la temporada al lograr la segunda posición absoluta por clubes en la legendaria Travesía a Nado La Bocaina, cruzando el estrecho entre Lanzarote y Fuerteventura.
+    contenido: `El pasado sábado se celebró la Travesía La Tiñosa, organizada por cd4elementos. Esta prueba supuso la 1ª etapa puntuable para la Copa de Aguas Abiertas de Lanzarote 2026. Destacar que el C.D. Nadamás Santa Rosa ha demostrado una vez más su potencial siendo todo el podio de la Clasificación General de nuestro club.
 
-La travesía, con una distancia aproximada de 15 kilómetros de mar abierto, exigió lo mejor de cada uno de los nadadores del club. Con unas condiciones de corriente cruzada y oleaje exigente, el equipo mantuvo la disciplina de nado en grupo y una hidratación milimétrica para superar los tramos de mayor resistencia de agua.
+Resultados de la prueba:
 
-La llegada a la costa de Fuerteventura tras horas de esfuerzo ininterrumpido fue un momento cargado de emoción. El esfuerzo combinado del equipo sirvió para colocar al C.D.N. Nadamás entre los tres mejores clubes de la competición marítima más célebre del archipiélago.
+Prueba 400m:
+• 1º Alexander Delgado
+• 2ª Ariadna Martí
+• 4º Eliaset Suárez
+• 5º Santiago Javier León
 
-Este resultado confirma la versatilidad de los nadadores del club, capaces de rendir al máximo nivel tanto en la piscina del C.D. Santa Rosa como en los desafíos marinos más exigentes del Atlántico.`
-  },
-  {
-    slug: 'travesia-a-nado-el-rio-la-graciosa',
-    titulo: 'Gran participación del C.D.N. Nadamás en la Travesía a Nado El Río de La Graciosa',
-    fecha: '5 de Junio, 2026',
-    categoria: 'aguas-abiertas',
-    resumen: 'Una amplia marea roja de nadadores del club inundó la travesía entre el Mirador del Río y Caleta de Sebo con brillantes resultados individuales.',
-    imagenPrincipal: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop',
-    imagenes: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1569517282132-25d22f4573e6?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop'
-    ],
-    contenido: `La espectacular Travesía a Nado El Río, que une la playa del Risco de Famara con Caleta de Sebo en La Graciosa, se vistió con los colores del C.D.N. Nadamás Las Marinas. Más de 25 nadadores de todas las categorías del club tomaron la salida en una jornada festiva y deportiva inigualable.
+Prueba 800m:
+• 1ª Andrea Fraga
+• 2º Lois Chantada
+• 3ª Nahia Escudero
+• 5ª Chloe Vaz
+• 6ª Irene González
+• 7ª Diana Castro
+• 8ª Noa Pérez
 
-Con un mar en excelentes condiciones de transparencia, la escuadra de Nadamás tomó la delantera desde las primeras brazadas tras cruzar la playa de salida. Nadadores juveniles, absolutos y máster del club se apoyaron mutuamente a lo largo de los 2.600 metros de travesía marítima.
+CLASIFICACIÓN GENERAL 1500m (Podio íntegro del C.D. Nadamás Santa Rosa):
+🥇 Andreu Jaén (1º General)
+🥈 Naira Jaén (2ª General)
+🥉 Nicolás Padrón (3º General)
+• Katia Pérez
+• Diego Vázquez
+• Natalia Sasu
 
-A la llegada al muelle de La Graciosa, nuestros nadadores cosecharon varios podios en sus respectivas categorías por edades, levantando el aplauso unánime del numeroso público congregado en el puerto.
-
-La jornada concluyó con un almuerzo de convivencia entre deportistas, técnicos y familiares, reafirmando los valores de compañerismo, amor por la naturaleza marítima de Lanzarote y deportividad que definen la seña de identidad del C.D.N. Nadamás.`
+CLASIFICACIÓN POR CATEGORÍAS 1500m:
+• Andrés Arcadio Martín (1º Adaptada)
+• Nicolás Padrón (1º Infantil)
+• Katia Pérez (1ª Infantil)
+• Naira Jaén (1ª Junior 2)
+• Andreu Jaén (1º Máster A)
+• Claudia Iglesias (1ª Máster A)
+• Daniele Tambini (1º Máster D)
+• Roberta Bornaghi (1ª Máster E)
+• Olga Tavio (1ª Máster F)
+• Martín Torres (1º Máster H)
+• María Elena Tabares (1ª Máster J)
+• Diego Vázquez (1º Infantil)
+• Nora Delgado (2ª Infantil)
+• Besay Delgado (1º Junior 1)
+• Natalia Sasu (1ª Junior 2)
+• José Vicente Vizcaíno (1º Máster D)
+• Carmen Rosa Guadalupe (1ª Máster G)
+• Juan José Ramos (3º Infantil)
+• Lily Gopar (3ª Junior 2)
+• Cristo García (1º Máster C)
+• Íñigo Navarro (1º Máster)
+• Armando Guadalupe (1º Máster C)
+• Erik Suárez (4º Infantil)
+• Jimena Martín (4ª Infantil)
+• Echedey Cabrera (5º Infantil)
+• Martina Martín (5ª Infantil)`
   }
 ];

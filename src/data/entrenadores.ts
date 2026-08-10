@@ -20,7 +20,7 @@ export const entrenadores: Entrenador[] = [
     imagen: '/entrenadores/ricardo-senra.jpg',
     titulacion: 'Entrenador y Mentor Histórico de Natación',
     cita: 'El gran objetivo de la natación y del deporte en general es formar buenas personas. Luego el orgullo es ver que son buena gente y buenos profesionales.',
-    bio: 'Nacido en Rosario (Argentina) y afincado en Lanzarote desde hace 34 años. Referente indiscutible de la natación en la isla y pilar del C.D.N. Nadamás en el C.D. Santa Rosa. Ha sido cuna de talentos insulares como Alejandro Candela, Sara González, Kennedy Denby o Marta Santana, y mentor de campeones de España como Naira Jaén, Herminio Fernández y Diego Vázquez.'
+    bio: 'Nacido en Rosario (Argentina) y afincado en Lanzarote desde hace 34 años. Referente indiscutible de la natación en la isla y pilar del C.D.N. Nadamás Las Marinas. Ha sido cuna de talentos insulares como Alejandro Candela, Sara González, Kennedy Denby o Marta Santana, y mentor de campeones de España como Naira Jaén, Herminio Fernández y Diego Vázquez.'
   },
   {
     id: 'nacho-villalba',
@@ -30,7 +30,7 @@ export const entrenadores: Entrenador[] = [
     experiencia: '+15 años de experiencia',
     imagen: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop',
     titulacion: 'Técnico Superior de Natación (RFEN)',
-    cita: 'El trabajo constante en la piscina del C.D. Santa Rosa es la base para formar campeones en Canarias y en España.',
+    cita: 'El trabajo constante en el C.N. Nadamás Las Marinas es la base para formar campeones en Canarias y en España.',
     bio: 'Técnico del C.D.N. Nadamás Las Marinas. Ha acompañado a nadadores campeones regionales y medallistas nacionales en piscina y aguas abiertas, implantando metodologías de entrenamiento de alto rendimiento.'
   },
   {
