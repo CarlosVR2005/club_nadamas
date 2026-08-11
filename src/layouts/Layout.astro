@@ -32,12 +32,22 @@ const {
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://clubnadamas.es/" />
 
+    <!-- Google Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-69M5QJFF1F"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-69M5QJFF1F');
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="C.D. Nadamás Las Marinas" />
+    <meta property="og:site_name" content="C.D. Nadamás Santa Rosa" />
 
     <!-- Fonts: Montserrat (Headings) & Roboto (Body) & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

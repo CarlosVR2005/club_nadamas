@@ -11,6 +11,7 @@ export default defineConfig({
 
   // Redirecciones 301 para preservar el SEO de la web antigua indexada en Google
   redirects: {
+    '/inicio': '/',
     '/cuotas': '/#horarios',
     '/horarios': '/#horarios',
     '/nuestra-historia': '/#palmares',
