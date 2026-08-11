@@ -7,5 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
+  },
+
+  // Redirecciones 301 para preservar el SEO de la web antigua indexada en Google
+  redirects: {
+    '/cuotas': '/#horarios',
+    '/horarios': '/#horarios',
+    '/nuestra-historia': '/#palmares',
   }
 });
