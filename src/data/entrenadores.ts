@@ -23,6 +23,17 @@ export const entrenadores: Entrenador[] = [
     bio: 'Nacido en Rosario (Argentina) y afincado en Lanzarote desde hace 34 años. Referente indiscutible de la natación en la isla y pilar del C.D.N. Nadamás Las Marinas. Ha sido cuna de talentos insulares como Alejandro Candela, Sara González, Kennedy Denby o Marta Santana, y mentor de campeones de España como Naira Jaén, Herminio Fernández y Diego Vázquez.'
   },
   {
+    id: 'carlos-fernandez',
+    nombre: 'Carlos Fernández',
+    cargo: 'Monitor de Natación & Director de la Escuela',
+    especialidad: 'Natación Formativa & Todas las Edades',
+    experiencia: 'Entrenador Federado',
+    imagen: '/entrenadores/Carlos-entrenador.jpeg',
+    titulacion: 'Monitor de Natación & Director de la Escuela de Natación',
+    cita: 'Para nosotros, la enseñanza de la natación va mucho más allá de la técnica: es la emoción de ver a un pequeño perder el miedo al agua, el orgullo de acompañar a una persona mayor a cumplir un sueño pendiente. Ver crecer a los más pequeños y dar confianza a los más grandes no es solo nuestro trabajo, es nuestra mayor satisfacción.',
+    bio: 'Entrenador del C.D. Nadamás Las Marinas comprometido con la enseñanza de la natación en todas las edades y niveles. Su vocación es acompañar a cada alumno en su camino, desde los más pequeños que dan sus primeras brazadas hasta los adultos que cumplen un sueño pendiente, haciendo de cada progreso una satisfacción compartida.'
+  },
+  {
     id: 'nacho-villalba',
     nombre: 'Nacho Villalba',
     cargo: 'Entrenador Alevín & Preparador Técnico',
