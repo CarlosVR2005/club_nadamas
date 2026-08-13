@@ -33,8 +33,8 @@ const noticiasPreview = noticias.slice(0, 3);
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {noticiasPreview.map((item, idx) => (
         <a href={`/noticias/${item.slug}`} class={`card-modern overflow-hidden border-slate-200 flex flex-col group hover:border-[#ED1C24]/50 reveal-delay-${idx + 1}`}>
-          <div class="relative h-48 overflow-hidden">
-            <img src={item.imagenPrincipal} alt={item.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src={item.imagenPrincipal} alt={item.titulo} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute top-3 left-3">
               <span class="px-3 py-1 rounded-full bg-[#ED1C24] text-white text-xs font-extrabold shadow-sm">
                 {formatCategoria(item.categoria)}
