@@ -8,8 +8,8 @@ const programas = [
     horario: "Lunes a Viernes: 16:00 a 19:00 h",
     description:
       "Aprendizaje de los cuatro estilos, técnica básica y evolución deportiva adaptada al nivel de cada alumno.",
-    iconBg: "bg-[#ED1C24]",
-    badgeBg: "bg-[#ED1C24]/10 text-[#ED1C24]",
+    iconBg: "bg-brand-red",
+    badgeBg: "bg-brand-red/10 text-brand-red",
   },
   {
     icon: `<svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>`,
@@ -18,8 +18,8 @@ const programas = [
     horario: "L, M, V: 09:00-10:00 h | M, J: 19:00-20:00 h",
     description:
       "Entrenamientos adaptados para adultos que desean iniciarse o mejorar su técnica y condición física.",
-    iconBg: "bg-[#00226D]",
-    badgeBg: "bg-[#00226D]/10 text-[#00226D]",
+    iconBg: "bg-navy-900",
+    badgeBg: "bg-navy-900/10 text-navy-900",
   },
   {
     icon: `<svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>`,
@@ -28,8 +28,8 @@ const programas = [
     horario: "L-V: 18:00-18:30 h | Sáb: 10:00-12:00 h",
     description:
       "Iniciación y estimulación acuática en un entorno seguro y adaptado para los más pequeños.",
-    iconBg: "bg-[#ED1C24]",
-    badgeBg: "bg-[#ED1C24]/10 text-[#ED1C24]",
+    iconBg: "bg-brand-red",
+    badgeBg: "bg-brand-red/10 text-brand-red",
   },
   {
     icon: `<svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>`,
@@ -38,8 +38,8 @@ const programas = [
     horario: "Planificación de alto rendimiento",
     description:
       "Entrenamientos avanzados para nadadores federados que compiten en campeonatos regionales y nacionales.",
-    iconBg: "bg-[#00123D]",
-    badgeBg: "bg-[#00226D]/10 text-[#00226D]",
+    iconBg: "bg-navy-950",
+    badgeBg: "bg-navy-900/10 text-navy-900",
   },
 ];
 ---
@@ -49,14 +49,14 @@ const programas = [
     <!-- Section Header -->
     <div class="text-center mb-16 reveal">
       <span
-        class="inline-block px-4 py-1.5 rounded-full bg-[#ED1C24]/10 text-[#ED1C24] text-xs font-bold tracking-widest uppercase mb-4 font-heading"
+        class="inline-block px-4 py-1.5 rounded-full bg-brand-red/10 text-brand-red text-xs font-bold tracking-widest uppercase mb-4 font-heading"
       >
         Nuestros Programas
       </span>
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-black text-[#00226D] mb-4 font-heading"
+        class="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4 font-heading"
       >
-        Encuentra tu <span class="text-[#ED1C24]">categoría</span>
+        Encuentra tu <span class="text-brand-red">categoría</span>
       </h2>
       <p class="max-w-2xl mx-auto text-slate-600 text-base sm:text-lg">
         Desde iniciación infantil hasta natación máster y competición federada.
@@ -68,7 +68,7 @@ const programas = [
       {
         programas.map((prog, idx) => (
           <div
-            class={`card-modern p-8 flex flex-col justify-between group border-slate-200 hover:border-[#ED1C24]/50 reveal-delay-${idx + 1}`}
+            class={`card-modern p-8 flex flex-col justify-between group border-slate-200 hover:border-brand-red/50 reveal-delay-${idx + 1}`}
           >
             <div>
               <div class="flex items-start gap-4 mb-5">
@@ -78,7 +78,7 @@ const programas = [
                   <Fragment set:html={prog.icon} />
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-[#00226D] font-heading group-hover:text-[#ED1C24] transition-colors">
+                  <h3 class="text-xl font-bold text-navy-900 font-heading group-hover:text-brand-red transition-colors">
                     {prog.title}
                   </h3>
                   <span
@@ -93,9 +93,9 @@ const programas = [
               </p>
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-[#00226D] font-semibold flex items-center gap-1.5">
+              <span class="text-navy-900 font-semibold flex items-center gap-1.5">
                 <svg
-                  class="w-4 h-4 text-[#ED1C24]"
+                  class="w-4 h-4 text-brand-red"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -111,7 +111,7 @@ const programas = [
               </span>
               <a
                 href="#horarios"
-                class="text-[#ED1C24] font-bold hover:underline flex items-center gap-1"
+                class="text-brand-red font-bold hover:underline flex items-center gap-1"
               >
                 Ver horario completo →
               </a>
