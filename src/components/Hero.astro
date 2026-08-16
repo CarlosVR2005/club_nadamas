@@ -1,5 +1,7 @@
 ---
 /* Hero: Full-screen section with background image, bold headline, CTAs and wave divider */
+import { Picture } from 'astro:assets';
+import heroSwimming from '../assets/images/hero-swimming.png';
 ---
 
 <section
@@ -8,11 +10,16 @@
 >
   <!-- Background Image with Motion Blur/Zoom effect -->
   <div class="absolute inset-0 overflow-hidden">
-    <img
-      src="/hero-swimming.png"
+    <Picture
+      src={heroSwimming}
       alt="Nadadores compitiendo en piscina"
       class="w-full h-full object-cover scale-105 transition-all duration-1000 ease-out filter brightness-[0.70] contrast-110"
+      widths={[640, 1024]}
+      sizes="100vw"
+      formats={['avif', 'webp']}
+      quality={75}
       loading="eager"
+      fetchpriority="high"
     />
     <div
       class="absolute inset-0 bg-gradient-to-b from-navy-950/65 via-navy-900/50 to-navy-950/85"

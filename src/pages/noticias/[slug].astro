@@ -1,6 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { noticias, formatCategoria } from '../../data/noticias';
+import { getImagen } from '../../utils/images';
 
 export function getStaticPaths() {
   return noticias.map((noticia) => ({
@@ -13,8 +15,27 @@ const { noticia } = Astro.props;
 const paragrafos = noticia.contenido.split('\n\n');
 
 // Combine and deduplicate images for the slider
-const allImages = Array.from(
+const imagePaths = Array.from(
   new Set([noticia.imagenPrincipal, ...(noticia.imagenes || [])])
+);
+
+// The carousel/lightbox below is driven by client-side script that reads
+// plain URL strings from src/data-full-img attributes, so the <Image>/
+// <Picture> components (which render markup, not a URL) don't fit here.
+// getImage() is the low-level astro:assets API: it optimizes at build time
+// and hands back a plain .src string we can drop straight into those
+// attributes without touching the existing carousel/lightbox script.
+const allImages = await Promise.all(
+  imagePaths.map(async (path) => {
+    const source = getImagen(path);
+    const [blurBg, display, thumb, full] = await Promise.all([
+      getImage({ src: source, width: 500, format: 'avif', quality: 40 }),
+      getImage({ src: source, width: 1400, format: 'avif', quality: 75 }),
+      getImage({ src: source, width: 400, format: 'avif', quality: 65 }),
+      getImage({ src: source, width: 2000, format: 'avif', quality: 82 }),
+    ]);
+    return { blurBg: blurBg.src, display: display.src, thumb: thumb.src, full: full.src };
+  })
 );
 ---
 
@@ -64,26 +85,28 @@ const allImages = Array.from(
       <div id="news-carousel" class="relative group min-h-[350px] sm:min-h-[450px] md:min-h-[550px] max-h-[750px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-12 bg-[#000d2b]">
         <!-- Slides Container -->
         <div id="carousel-slides" class="relative w-full h-full flex items-center justify-center min-h-[350px] sm:min-h-[450px] md:min-h-[550px]">
-          {allImages.map((imgUrl, i) => (
+          {allImages.map((img, i) => (
             <div
               class={`carousel-slide absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center ${i === 0 ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'}`}
               data-slide-index={i}
             >
               <!-- Blurred Background for Letterboxing -->
               <img
-                src={imgUrl}
+                src={img.blurBg}
                 alt=""
+                loading={i === 0 ? 'eager' : 'lazy'}
                 class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110 pointer-events-none select-none"
               />
 
               <!-- Real Aspect Ratio Main Image (No cropping) -->
               <img
-                src={imgUrl}
+                src={img.display}
                 alt={`Fotografía ${i + 1} de ${noticia.titulo}`}
+                loading={i === 0 ? 'eager' : 'lazy'}
                 class="open-lightbox relative z-10 max-h-[550px] w-auto max-w-full object-contain cursor-zoom-in transition-transform duration-300 hover:scale-[1.01] shadow-2xl rounded-lg"
-                data-full-img={imgUrl}
+                data-full-img={img.full}
               />
-              
+
               <div class="absolute inset-0 bg-gradient-to-t from-[#000d2b]/80 via-transparent to-black/30 pointer-events-none"></div>
             </div>
           ))}
@@ -166,15 +189,15 @@ const allImages = Array.from(
             <span class="text-xs font-semibold text-slate-500">Haz clic en cualquier foto para abrir a tamaño real</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {allImages.map((imgUrl, imgIdx) => (
+            {allImages.map((img, imgIdx) => (
               <button
                 class={`gallery-thumb open-lightbox relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md group transition-all duration-300 text-left ${imgIdx === 0 ? 'ring-4 ring-brand-red scale-105' : 'hover:scale-102'}`}
                 data-thumb-index={imgIdx}
-                data-full-img={imgUrl}
+                data-full-img={img.full}
                 aria-label={`Ver foto ${imgIdx + 1} a tamaño real`}
               >
                 <img
-                  src={imgUrl}
+                  src={img.thumb}
                   alt={`Imagen ${imgIdx + 1} de ${noticia.titulo}`}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"

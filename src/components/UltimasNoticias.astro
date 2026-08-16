@@ -1,6 +1,8 @@
 ---
 /* UltimasNoticias: Homepage preview section of latest news & competition results */
+import { Picture } from 'astro:assets';
 import { noticias, formatCategoria } from '../data/noticias';
+import { getImagen } from '../utils/images';
 
 const noticiasPreview = noticias.slice(0, 3);
 ---
@@ -34,7 +36,17 @@ const noticiasPreview = noticias.slice(0, 3);
       {noticiasPreview.map((item, idx) => (
         <a href={`/noticias/${item.slug}`} class={`card-modern overflow-hidden border-slate-200 flex flex-col group hover:border-brand-red/50 reveal-delay-${idx + 1}`}>
           <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src={item.imagenPrincipal} alt={item.titulo} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+            <Picture
+              src={getImagen(item.imagenPrincipal)}
+              alt={item.titulo}
+              width={500}
+              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+              widths={[350, 500]}
+              sizes="(min-width: 768px) 380px, 90vw"
+              formats={['avif', 'webp']}
+              quality={70}
+              loading="lazy"
+            />
             <div class="absolute top-3 left-3">
               <span class="px-3 py-1 rounded-full bg-brand-red text-white text-xs font-extrabold shadow-sm">
                 {formatCategoria(item.categoria)}

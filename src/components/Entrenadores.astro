@@ -1,5 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
 import { entrenadores } from '../data/entrenadores';
+import { getImagen } from '../utils/images';
 ---
 
 <section id="entrenadores" class="relative section-padding bg-navy-50 scroll-mt-24">
@@ -24,10 +26,16 @@ import { entrenadores } from '../data/entrenadores';
           <div>
             <!-- Coach Photo -->
             <div class="relative h-64 overflow-hidden bg-navy-950">
-              <img
-                src={coach.imagen}
+              <Picture
+                src={getImagen(coach.imagen)}
                 alt={coach.nombre}
+                width={500}
+                height={400}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                widths={[350, 500]}
+                sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 78vw"
+                formats={['avif', 'webp']}
+                quality={70}
                 loading="lazy"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-transparent"></div>
