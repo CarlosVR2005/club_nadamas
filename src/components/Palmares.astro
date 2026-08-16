@@ -115,9 +115,9 @@ const vitrina = [
     </div>
 
     <!-- Achievement Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 -mx-4 px-4 no-scrollbar sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:snap-none sm:mx-0 sm:px-0 sm:pb-0 lg:grid-cols-4 mb-20">
       {achievements.map((item, idx) => (
-        <div class={`card-navy p-6 text-center group cursor-default border-slate-700/60 hover:border-brand-red/60 reveal-delay-${idx + 1}`}>
+        <div class={`card-navy p-6 text-center group cursor-default border-slate-700/60 hover:border-brand-red/60 shrink-0 w-[72%] snap-start sm:w-auto reveal-delay-${idx + 1}`}>
           <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
           <h3 class="text-lg font-bold text-white mb-2 font-heading">{item.title}</h3>
           <p class="text-slate-300 text-sm leading-relaxed">{item.description}</p>
@@ -140,9 +140,9 @@ const vitrina = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 -mx-4 px-4 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:snap-none md:mx-0 md:px-0 md:pb-0">
         {vitrina.map((item, idx) => (
-          <div class={`card-navy silver-sheen overflow-hidden group metallic-border hover:border-brand-red transition-all duration-300 flex flex-col justify-between reveal-delay-${idx + 1}`}>
+          <div class={`card-navy silver-sheen overflow-hidden group metallic-border hover:border-brand-red transition-all duration-300 flex flex-col justify-between shrink-0 w-[80%] snap-start md:w-auto reveal-delay-${idx + 1}`}>
             <div class="relative h-64 overflow-hidden">
               <img
                 src={item.imagen}

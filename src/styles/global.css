@@ -92,6 +92,20 @@ h6 {
   background: #D0161D;
 }
 
+/* ── Horizontal card carousels (mobile) ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-padding-left: 1rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Section padding ── */
 .section-padding {
   padding-top: 5rem;
@@ -203,10 +217,38 @@ h6 {
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
 }
 
+.reveal-delay-4 {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+.reveal-delay-5 {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.75s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.75s;
+}
+
+.reveal-delay-6 {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
+}
+
+.reveal-delay-7 {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s;
+}
+
 .reveal.is-visible,
 .reveal-delay-1.is-visible,
 .reveal-delay-2.is-visible,
-.reveal-delay-3.is-visible {
+.reveal-delay-3.is-visible,
+.reveal-delay-4.is-visible,
+.reveal-delay-5.is-visible,
+.reveal-delay-6.is-visible,
+.reveal-delay-7.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
