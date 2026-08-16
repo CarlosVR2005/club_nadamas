@@ -92,18 +92,24 @@ h6 {
   background: #D0161D;
 }
 
-/* ── Horizontal card carousels (mobile) ── */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-  scroll-padding-left: 1rem;
-}
+/* ── Horizontal card carousels (mobile only, below sm) ── */
+@media (max-width: 639px) {
+  .carousel-row {
+    /* overflow-x: auto forces the other axis from visible to auto, so the row
+       swallows vertical swipes and blocks the page scroll. Pin it shut. */
+    overflow-y: hidden;
+    touch-action: pan-x pan-y;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-padding-left: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+  .carousel-row::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ── Section padding ── */
@@ -191,66 +197,43 @@ h6 {
   animation: silver-shimmer 6s infinite ease-in-out;
 }
 
-/* ── Scroll-Linked Reveal Animations ── */
-.reveal {
+/* ── Scroll-Linked Reveal Animations ──
+   Everything here is scoped to .js (set by an inline script in Layout.astro):
+   if the script never runs, nothing is hidden and the content stays readable.
+   The attribute selector matches every delay step, so adding a new one can
+   never leave an element stuck at opacity 0. */
+.js .reveal,
+.js [class*="reveal-delay-"] {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .reveal {
   will-change: opacity, transform;
 }
 
-.reveal-delay-1 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-}
+.js .reveal-delay-1 { transition-delay: 0.15s; }
+.js .reveal-delay-2 { transition-delay: 0.3s; }
+.js .reveal-delay-3 { transition-delay: 0.45s; }
+.js .reveal-delay-4 { transition-delay: 0.6s; }
+.js .reveal-delay-5 { transition-delay: 0.75s; }
+.js .reveal-delay-6 { transition-delay: 0.9s; }
+.js .reveal-delay-7 { transition-delay: 1.05s; }
 
-.reveal-delay-2 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
-}
-
-.reveal-delay-3 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
-}
-
-.reveal-delay-4 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
-}
-
-.reveal-delay-5 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.75s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.75s;
-}
-
-.reveal-delay-6 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
-}
-
-.reveal-delay-7 {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s;
-}
-
-.reveal.is-visible,
-.reveal-delay-1.is-visible,
-.reveal-delay-2.is-visible,
-.reveal-delay-3.is-visible,
-.reveal-delay-4.is-visible,
-.reveal-delay-5.is-visible,
-.reveal-delay-6.is-visible,
-.reveal-delay-7.is-visible {
+.js .reveal.is-visible,
+.js [class*="reveal-delay-"].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js [class*="reveal-delay-"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ── Nav Link Red Underline Animation ── */
