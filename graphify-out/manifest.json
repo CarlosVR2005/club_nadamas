@@ -1,0 +1,338 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1786727323.9767303,
+    "seen": 1787007127.7644095,
+    "ast_hash": "05f9a80c99979342110ca8a08e88e954",
+    "semantic_hash": "05f9a80c99979342110ca8a08e88e954"
+  },
+  ".vscode/extensions.json": {
+    "mtime": 1786012897.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "3adedb22d082dbd1ebb00b75d21403aa",
+    "semantic_hash": "3adedb22d082dbd1ebb00b75d21403aa"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1786012897.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "60493763dcbc2d109e57da86d997602a",
+    "semantic_hash": "60493763dcbc2d109e57da86d997602a"
+  },
+  "astro.config.mjs": {
+    "mtime": 1786484558.0446558,
+    "seen": 1787007127.7644095,
+    "ast_hash": "46f9198b63fb05dbe0bfcbd12374136e",
+    "semantic_hash": "46f9198b63fb05dbe0bfcbd12374136e"
+  },
+  "package.json": {
+    "mtime": 1786484535.7207687,
+    "seen": 1787007127.7644095,
+    "ast_hash": "1478b4f569a0b031a22830d9aa416f27",
+    "semantic_hash": "1478b4f569a0b031a22830d9aa416f27"
+  },
+  "src/components/ComoUnirte.astro": {
+    "mtime": 1786727296.0819287,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d51cd5c0b0ed6e2b10ce5c13fab5eb50",
+    "semantic_hash": "d51cd5c0b0ed6e2b10ce5c13fab5eb50"
+  },
+  "src/components/Contacto.astro": {
+    "mtime": 1786727296.231245,
+    "seen": 1787007127.7644095,
+    "ast_hash": "9189db072884182e8c27b63d75813465",
+    "semantic_hash": "9189db072884182e8c27b63d75813465"
+  },
+  "src/components/Entrenadores.astro": {
+    "mtime": 1786909380.2617736,
+    "seen": 1787007127.7644095,
+    "ast_hash": "cf5f09d1a976ddd108e220d18a0339e2",
+    "semantic_hash": "cf5f09d1a976ddd108e220d18a0339e2"
+  },
+  "src/components/Footer.astro": {
+    "mtime": 1786727296.289971,
+    "seen": 1787007127.7644095,
+    "ast_hash": "50e358b1eb023695eebc96c1554f63b2",
+    "semantic_hash": "50e358b1eb023695eebc96c1554f63b2"
+  },
+  "src/components/Header.astro": {
+    "mtime": 1786727295.6500537,
+    "seen": 1787007127.7644095,
+    "ast_hash": "885fe2d63a237c74ae0d94169e5c61b8",
+    "semantic_hash": "885fe2d63a237c74ae0d94169e5c61b8"
+  },
+  "src/components/Hero.astro": {
+    "mtime": 1786909373.0097325,
+    "seen": 1787007127.7644095,
+    "ast_hash": "941da302b925cdd94d2da5e18c8dc37c",
+    "semantic_hash": "941da302b925cdd94d2da5e18c8dc37c"
+  },
+  "src/components/Horarios.astro": {
+    "mtime": 1786727295.9302073,
+    "seen": 1787007127.7644095,
+    "ast_hash": "a19e60cc3c0a00968a11e8d56f2d0f99",
+    "semantic_hash": "a19e60cc3c0a00968a11e8d56f2d0f99"
+  },
+  "src/components/Palmares.astro": {
+    "mtime": 1786909376.5946279,
+    "seen": 1787007127.7644095,
+    "ast_hash": "95eca4457be0dce906dd95572fc3064d",
+    "semantic_hash": "95eca4457be0dce906dd95572fc3064d"
+  },
+  "src/components/Programas.astro": {
+    "mtime": 1786898067.430537,
+    "seen": 1787007127.7644095,
+    "ast_hash": "0c7b825a599e107057cfd1f73c6834fd",
+    "semantic_hash": "0c7b825a599e107057cfd1f73c6834fd"
+  },
+  "src/components/UltimasNoticias.astro": {
+    "mtime": 1786909387.225739,
+    "seen": 1787007127.7644095,
+    "ast_hash": "af0707b7050c65298f79add5ddc0ca04",
+    "semantic_hash": "af0707b7050c65298f79add5ddc0ca04"
+  },
+  "src/data/entrenadores.ts": {
+    "mtime": 1786521344.531252,
+    "seen": 1787007127.7644095,
+    "ast_hash": "acb03582bb022d5c1b4beeff73db42ee",
+    "semantic_hash": "acb03582bb022d5c1b4beeff73db42ee"
+  },
+  "src/data/noticias.ts": {
+    "mtime": 1786388961.1358016,
+    "seen": 1787007127.7644095,
+    "ast_hash": "bab2791b4b53885af8bc1584ac108108",
+    "semantic_hash": "bab2791b4b53885af8bc1584ac108108"
+  },
+  "src/layouts/Layout.astro": {
+    "mtime": 1787006159.975132,
+    "seen": 1787007127.7644095,
+    "ast_hash": "f17056b5e4de2924ce5109e1fa20ba25",
+    "semantic_hash": "f17056b5e4de2924ce5109e1fa20ba25"
+  },
+  "src/pages/entrenadores.astro": {
+    "mtime": 1786909383.7410731,
+    "seen": 1787007127.7644095,
+    "ast_hash": "f753b0f3f57b31c8d2d33890722fa09b",
+    "semantic_hash": "f753b0f3f57b31c8d2d33890722fa09b"
+  },
+  "src/pages/index.astro": {
+    "mtime": 1786289322.3985496,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d7882af7a62fbcfb69f4e84ed8826c69",
+    "semantic_hash": "d7882af7a62fbcfb69f4e84ed8826c69"
+  },
+  "src/pages/noticias.astro": {
+    "mtime": 1786909394.9441483,
+    "seen": 1787007127.7644095,
+    "ast_hash": "b673a0b05bdd1d712e145aec4b8fe41c",
+    "semantic_hash": "b673a0b05bdd1d712e145aec4b8fe41c"
+  },
+  "src/pages/noticias/[slug].astro": {
+    "mtime": 1786909272.553211,
+    "seen": 1787007127.7644095,
+    "ast_hash": "bc981d2b02f3226649fd1f396856eae3",
+    "semantic_hash": "bc981d2b02f3226649fd1f396856eae3"
+  },
+  "src/utils/images.ts": {
+    "mtime": 1786909139.8381643,
+    "seen": 1787007127.7644095,
+    "ast_hash": "a9eea739eb87293a2444021ad54e971d",
+    "semantic_hash": "a9eea739eb87293a2444021ad54e971d"
+  },
+  "tsconfig.json": {
+    "mtime": 1786012897.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "1d3613ac08bdda17e2b82251613dbc21",
+    "semantic_hash": "1d3613ac08bdda17e2b82251613dbc21"
+  },
+  "AGENTS.md": {
+    "mtime": 1786103406.6131566,
+    "seen": 1787007127.7644095,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": "4d944a80d98bf8891d5b10081a86d3e1"
+  },
+  "CLAUDE.md": {
+    "mtime": 1786103406.6131566,
+    "seen": 1787007127.7644095,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": "4d944a80d98bf8891d5b10081a86d3e1"
+  },
+  "README.md": {
+    "mtime": 1786103406.6121583,
+    "seen": 1787007127.7644095,
+    "ast_hash": "de76967202948d4f70d11f4b3d9e7674",
+    "semantic_hash": "de76967202948d4f70d11f4b3d9e7674"
+  },
+  "public/apple-touch-icon.png": {
+    "mtime": 1787005463.1850512,
+    "seen": 1787007127.7644095,
+    "ast_hash": "c6a22572f974aa9a8042750142f1dc33",
+    "semantic_hash": "c6a22572f974aa9a8042750142f1dc33"
+  },
+  "public/diego-campeon.jpeg": {
+    "mtime": 1786193820.8789558,
+    "seen": 1787007127.7644095,
+    "ast_hash": "49a8132c9560c89cc041441e4d17164d",
+    "semantic_hash": "49a8132c9560c89cc041441e4d17164d"
+  },
+  "public/entrenadores/Nacho-entrenador.jpeg": {
+    "mtime": 1786476162.9040923,
+    "seen": 1787007127.7644095,
+    "ast_hash": "07b550256e87a17c835568fbc3e3db74",
+    "semantic_hash": "07b550256e87a17c835568fbc3e3db74"
+  },
+  "public/favicon-96x96.png": {
+    "mtime": 1787005463.191052,
+    "seen": 1787007127.7644095,
+    "ast_hash": "a3405ec7a856f66e2bd22cbf9192ab19",
+    "semantic_hash": "a3405ec7a856f66e2bd22cbf9192ab19"
+  },
+  "public/herminio-campe\u00f3n.jpeg": {
+    "mtime": 1786193792.0845947,
+    "seen": 1787007127.7644095,
+    "ast_hash": "c4c830d7069cd22834ac9114a33676b7",
+    "semantic_hash": "c4c830d7069cd22834ac9114a33676b7"
+  },
+  "public/icon-192.png": {
+    "mtime": 1787005463.1980536,
+    "seen": 1787007127.7644095,
+    "ast_hash": "9e1376cc706d35b12f1adec56cc18443",
+    "semantic_hash": "9e1376cc706d35b12f1adec56cc18443"
+  },
+  "public/icon-512.png": {
+    "mtime": 1787005463.2090507,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d3bed0182c03ce03f81f54c3c32279a4",
+    "semantic_hash": "d3bed0182c03ce03f81f54c3c32279a4"
+  },
+  "public/logo-club.png": {
+    "mtime": 1786116102.61185,
+    "seen": 1787007127.7644095,
+    "ast_hash": "df723a2a7c67515c5b070819b886705d",
+    "semantic_hash": "df723a2a7c67515c5b070819b886705d"
+  },
+  "public/noticias/nacionales/Campeonato-espania-verano-junior-26.jpg": {
+    "mtime": 1786385220.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d52904d88be646c84e4d68a1c05ecfca",
+    "semantic_hash": "d52904d88be646c84e4d68a1c05ecfca"
+  },
+  "src/assets/images/campeones/Andrea-campeona.jpg": {
+    "mtime": 1786285069.5825016,
+    "seen": 1787007127.7644095,
+    "ast_hash": "e9d92282d0eac5c8a21b75608c579b98",
+    "semantic_hash": "e9d92282d0eac5c8a21b75608c579b98"
+  },
+  "src/assets/images/campeones/Gustavo-campe\u00f3n.jpg": {
+    "mtime": 1786659576.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "b5f1f1c5faec6422fcc69c3428eb429d",
+    "semantic_hash": "b5f1f1c5faec6422fcc69c3428eb429d"
+  },
+  "src/assets/images/campeones/Juan-campeon.jpg": {
+    "mtime": 1786659229.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "51694a9c3dbe7414ebedaeb6be5c6f23",
+    "semantic_hash": "51694a9c3dbe7414ebedaeb6be5c6f23"
+  },
+  "src/assets/images/campeones/Kennedy-campeona.jpg": {
+    "mtime": 1786653105.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "7426eadfa85fe6ecdfbb863ef5de923c",
+    "semantic_hash": "7426eadfa85fe6ecdfbb863ef5de923c"
+  },
+  "src/assets/images/campeones/Naira-Campeona.jpg": {
+    "mtime": 1786285463.1883097,
+    "seen": 1787007127.7644095,
+    "ast_hash": "36df49439cb04a954502d2514fb70e6d",
+    "semantic_hash": "36df49439cb04a954502d2514fb70e6d"
+  },
+  "src/assets/images/campeones/diego-campeon.jpeg": {
+    "mtime": 1786193820.8789558,
+    "seen": 1787007127.7644095,
+    "ast_hash": "49a8132c9560c89cc041441e4d17164d",
+    "semantic_hash": "49a8132c9560c89cc041441e4d17164d"
+  },
+  "src/assets/images/campeones/herminio-campeon.jpeg": {
+    "mtime": 1786193792.0845947,
+    "seen": 1787007127.7644095,
+    "ast_hash": "c4c830d7069cd22834ac9114a33676b7",
+    "semantic_hash": "c4c830d7069cd22834ac9114a33676b7"
+  },
+  "src/assets/images/entrenadores/Carlos-entrenador.jpeg": {
+    "mtime": 1786521031.5944564,
+    "seen": 1787007127.7644095,
+    "ast_hash": "ef6859aea3df058094e01d109a54f7c9",
+    "semantic_hash": "ef6859aea3df058094e01d109a54f7c9"
+  },
+  "src/assets/images/entrenadores/nacho-entrenador.jpg": {
+    "mtime": 1786476273.729481,
+    "seen": 1787007127.7644095,
+    "ast_hash": "07b550256e87a17c835568fbc3e3db74",
+    "semantic_hash": "07b550256e87a17c835568fbc3e3db74"
+  },
+  "src/assets/images/entrenadores/ricardo-senra.jpg": {
+    "mtime": 1786289630.8759336,
+    "seen": 1787007127.7644095,
+    "ast_hash": "0be5e8ae41dc9bbe76741b4368966721",
+    "semantic_hash": "0be5e8ae41dc9bbe76741b4368966721"
+  },
+  "src/assets/images/hero-swimming.png": {
+    "mtime": 1786103953.5635552,
+    "seen": 1787007127.7644095,
+    "ast_hash": "9583e00dee3867db64094a9d0a4097b1",
+    "semantic_hash": "9583e00dee3867db64094a9d0a4097b1"
+  },
+  "src/assets/images/noticias/aguas-abiertas/travesia-tinosa-1.jpg": {
+    "mtime": 1786384622.1358838,
+    "seen": 1787007127.7644095,
+    "ast_hash": "bb1b78f18cb0f0e095f6b34b8281a0c9",
+    "semantic_hash": "bb1b78f18cb0f0e095f6b34b8281a0c9"
+  },
+  "src/assets/images/noticias/aguas-abiertas/travesia-tinosa-2.jpg": {
+    "mtime": 1786384622.1368842,
+    "seen": 1787007127.7644095,
+    "ast_hash": "08a1fec860a8526361bab4a22dae47ed",
+    "semantic_hash": "08a1fec860a8526361bab4a22dae47ed"
+  },
+  "src/assets/images/noticias/aguas-abiertas/travesia-tinosa-3.jpg": {
+    "mtime": 1786384622.1388836,
+    "seen": 1787007127.7644095,
+    "ast_hash": "b1132c16104ae00e49d28e9ddda15767",
+    "semantic_hash": "b1132c16104ae00e49d28e9ddda15767"
+  },
+  "src/assets/images/noticias/nacionales/campeonato-espana-junior-26.jpg": {
+    "mtime": 1786385452.8973536,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d52904d88be646c84e4d68a1c05ecfca",
+    "semantic_hash": "d52904d88be646c84e4d68a1c05ecfca"
+  },
+  "src/assets/images/noticias/regionales/regional-canarias-junior-absoluto-verano26-1.jpg": {
+    "mtime": 1786386137.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "b00eb3537b17a4770dc1d23d2f4e8c5c",
+    "semantic_hash": "b00eb3537b17a4770dc1d23d2f4e8c5c"
+  },
+  "src/assets/images/noticias/regionales/regional-canarias-junior-absoluto-verano26-2.jpg": {
+    "mtime": 1786386152.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "0ed8f0c2e6fe1414822cf6f0a9a85077",
+    "semantic_hash": "0ed8f0c2e6fe1414822cf6f0a9a85077"
+  },
+  "src/assets/images/noticias/regionales/regional-canarias-junior-absoluto-verano26-3.jpg": {
+    "mtime": 1786386162.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "252ce9034f3af32d3f5b6aaba9d97a3f",
+    "semantic_hash": "252ce9034f3af32d3f5b6aaba9d97a3f"
+  },
+  "src/assets/images/noticias/regionales/regional-canarias-junior-absoluto-verano26-4.jpg": {
+    "mtime": 1786386174.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "d9e57453fe8907942239dedc1d2631c8",
+    "semantic_hash": "d9e57453fe8907942239dedc1d2631c8"
+  },
+  "src/assets/images/noticias/regionales/regional-canarias-junior-absoluto-verano26-5.jpg": {
+    "mtime": 1786386184.0,
+    "seen": 1787007127.7644095,
+    "ast_hash": "06b5fb320301722be11fdfe2552d4ba9",
+    "semantic_hash": "06b5fb320301722be11fdfe2552d4ba9"
+  }
+}
