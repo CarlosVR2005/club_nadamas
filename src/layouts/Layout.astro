@@ -12,6 +12,8 @@ const {
   title = 'C.D. Nadamás Santa Rosa | Club de Natación en Costa Teguise, Lanzarote',
   description = 'Club de natación C.D. Nadamás Santa Rosa en Costa Teguise, Lanzarote. Campeones de Canarias y de España. Escuela de natación, competición, máster y aguas abiertas.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -37,7 +39,7 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://clubnadamas.es/" />
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- Google Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-69M5QJFF1F"></script>
@@ -51,6 +53,7 @@ const {
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="es_ES" />
